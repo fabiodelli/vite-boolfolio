@@ -1,27 +1,64 @@
 <script>
+import axios from 'axios'
 import HelloWorld from './components/HelloWorld.vue'
 
 export default {
     components: {
         HelloWorld,
+    },
+    data() {
+        return {
+            base_url: 'http://127.0.0.1:8000/',
+            projects_API: 'api/projects',
+            loading: true,
+            projects: null,
+            error: null
+        }
+    },
+    methods: {
+        getProjects(url) {
+            axios
+                .get(url)
+                .then(response => {
+                    console.log(response);
+                    this.projects = response.data.name
+                    this.loading = false
+                })
+                .catch(error => {
+                    console.log(error);
+                    this.error = error.message
+                })
+        },
+        getImagePath(path){
+           return this.base_url + 'storage/' + path;
+        }
+    },
+    mounted() {
+        const url = this.base_url + this.projects_API
+        this.getProjects(url)
     }
 }
 </script>
 
 <template>
-    <section class="vue-home">
+    <div class="p-5 mb-4 bg-light rounded-3">
+        <div class="container-fluid py-5">
+            <h1 class="display-5 fw-bold">My projects</h1>
+            <p class="col-md-8 fs-4">Using a series of utilities, you can create this jumbotron, just like the one in
+                previous versions of Bootstrap. Check out the examples below for how you can remix and restyle it to your
+                liking.</p>
+        </div>
+    </div>
+    <section class="projects">
         <div class="container">
             <div class="row">
-                <div class="col-12 d-flex flex-column justify-content-center align-items-center vh-100">
-                    <div class="logos">
-                        <a href="https://vitejs.dev" target="_blank">
-                            <img src="/vite.svg" class="logo" alt="Vite logo" />
-                        </a>
-                        <a href="https://vuejs.org/" target="_blank">
-                            <img src="./assets/vue.svg" class="logo vue" alt="Vue logo" />
-                        </a>
+                <div class="col" v-for="project in projects">
+                    <div class="card">
+                        <img :src="getImagePath(project.cover_image)" alt="{{ project.title }}" class="card-img-top">
+                        <div class="card-body">
+                            <h3>{{ project.title }}</h3>
+                        </div>
                     </div>
-                    <HelloWorld />
                 </div>
             </div>
         </div>
@@ -30,31 +67,4 @@ export default {
 
 <style lang="scss">
 @use './styles/general.scss';
-
-.vue-home {
-    color: #2c3e50;
-    background: #181818;
-    transition: color 0.5s, background-color 0.5s;
-    line-height: 1.6;
-    font-family: Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu,
-        Cantarell, 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
-    font-size: 15px;
-    text-rendering: optimizeLegibility;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-}
-
-.logo {
-    height: 6em;
-    padding: 1.5em;
-    will-change: filter;
-}
-
-.logo:hover {
-    filter: drop-shadow(0 0 2em #646cffaa);
-}
-
-.logo.vue:hover {
-    filter: drop-shadow(0 0 2em #42b883aa);
-}
 </style>
