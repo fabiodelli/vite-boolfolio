@@ -42,9 +42,10 @@ export default {
 
 <template>
     <nav class="nav justify-content-center  ">
-        <a class="nav-link active" href="/" aria-current="page">Home </a>
-        <a class="nav-link" href="/about">About</a>
-        <a class="nav-link" href="/contacts">Contacts</a>
+        <router-link class="nav-link active" :to="{'name':'home'}" aria-current="page">Home </router-link>
+        <router-link class="nav-link " :to="{'name':'about'}" aria-current="page">About </router-link>
+        <router-link class="nav-link " :to="{'name':'contacts'}" aria-current="page">Contacts </router-link>
+        
     </nav>
     <router-view></router-view>
 </template>
