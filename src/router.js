@@ -7,12 +7,22 @@ import ContactsView from './views/ContactsView.vue';
 const router = createRouter({
   history: createWebHistory(),
   routes:[
-    {
-        'path': '/', 
-        'name' : 'home',
-        'component': HomeView
-    }
-  ]
+      {
+          'path': '/', 
+          'name' : 'home',
+          'component': HomeView
+      },
+      {
+          'path': '/About', 
+          'name' : 'about',
+          'component': AboutView
+      },
+      {
+          'path': '/Contacts', 
+          'name' : 'contacts',
+          'component': ContactsView
+      }
+]
 })
 
-export{router}
+export default {router}

@@ -29,8 +29,8 @@ export default {
                     this.error = error.message
                 })
         },
-        getImagePath(path){
-           return  path;
+        getImagePath(path) {
+            return path;
         }
     },
     mounted() {
@@ -41,30 +41,12 @@ export default {
 </script>
 
 <template>
-    <div>
-    <nav>
-      <router-link to="/">Home</router-link>
-      <router-link to="/about">About</router-link>
-      <router-link to="/contacts">Contacts</router-link>
+    <nav class="nav justify-content-center  ">
+        <a class="nav-link active" href="/" aria-current="page">Home </a>
+        <a class="nav-link" href="/about">About</a>
+        <a class="nav-link" href="/contacts">Contacts</a>
     </nav>
     <router-view></router-view>
-  </div>
-    <section class="projects">
-        <div class="container">
-            <div class="row">
-                <div class="col" v-for="project in projects">
-                    <div class="card h-100">
-                        <img class="card-img-top" :src="getImagePath(project.cover_image)" alt="{{ project.title }}" >
-                        <div class="card-body">
-                            <h3>
-                                {{ project.title }}
-                            </h3>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
 </template>
 
 <style lang="scss">
