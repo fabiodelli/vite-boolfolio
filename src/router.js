@@ -13,16 +13,16 @@ const router = createRouter({
           'component': HomeView
       },
       {
-          'path': '/About', 
+          'path': '/about', 
           'name' : 'about',
           'component': AboutView
       },
       {
-          'path': '/Contacts', 
+          'path': '/contacts', 
           'name' : 'contacts',
           'component': ContactsView
       }
 ]
 })
 
-export default {router}
+export { router }
