@@ -30,7 +30,7 @@ export default {
                 })
         },
         getImagePath(path){
-           return this.base_url + 'storage/' + path;
+           return  path;
         }
     },
     mounted() {
@@ -41,22 +41,24 @@ export default {
 </script>
 
 <template>
-    <div class="p-5 mb-4 bg-light rounded-3">
-        <div class="container-fluid py-5">
-            <h1 class="display-5 fw-bold">My projects</h1>
-            <p class="col-md-8 fs-4">Using a series of utilities, you can create this jumbotron, just like the one in
-                previous versions of Bootstrap. Check out the examples below for how you can remix and restyle it to your
-                liking.</p>
-        </div>
-    </div>
+    <div>
+    <nav>
+      <router-link to="/">Home</router-link>
+      <router-link to="/about">About</router-link>
+      <router-link to="/contacts">Contacts</router-link>
+    </nav>
+    <router-view></router-view>
+  </div>
     <section class="projects">
         <div class="container">
             <div class="row">
                 <div class="col" v-for="project in projects">
-                    <div class="card">
-                        <img :src="getImagePath(project.cover_image)" alt="{{ project.title }}" class="card-img-top">
+                    <div class="card h-100">
+                        <img class="card-img-top" :src="getImagePath(project.cover_image)" alt="{{ project.title }}" >
                         <div class="card-body">
-                            <h3>{{ project.title }}</h3>
+                            <h3>
+                                {{ project.title }}
+                            </h3>
                         </div>
                     </div>
                 </div>
