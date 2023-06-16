@@ -22,8 +22,7 @@ export default {
             axios
                 .get(url)
                 .then(response => {
-                    console.log(response);
-                    this.projects = response.data.name
+                    this.projects = response.data.results.data
                     this.loading = false
                 })
                 .catch(error => {
