@@ -1,10 +1,12 @@
 <script>
-import axios from 'axios'
-import HelloWorld from './components/HelloWorld.vue'
+import Jumbo from './components/Jumbo.vue';
+import AppHeader from './components/AppHeader.vue';
+import axios from 'axios';
 
 export default {
     components: {
-        HelloWorld,
+        AppHeader,
+        Jumbo
     },
     data() {
         return {
@@ -41,13 +43,11 @@ export default {
 </script>
 
 <template>
-    <nav class="nav justify-content-center  ">
-        <router-link class="nav-link active" :to="{'name':'home'}" aria-current="page">Home </router-link>
-        <router-link class="nav-link " :to="{'name':'about'}" aria-current="page">About </router-link>
-        <router-link class="nav-link " :to="{'name':'contacts'}" aria-current="page">Contacts </router-link>
-        
-    </nav>
+
+    <app-header></app-header>
+    <jumbo></jumbo>  
     <router-view></router-view>
+
 </template>
 
 <style lang="scss">
