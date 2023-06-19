@@ -8,36 +8,6 @@ export default {
         AppHeader,
         Jumbo
     },
-    data() {
-        return {
-            base_url: 'http://127.0.0.1:8000/',
-            projects_API: 'api/projects',
-            loading: true,
-            projects: null,
-            error: null
-        }
-    },
-    methods: {
-        getProjects(url) {
-            axios
-                .get(url)
-                .then(response => {
-                    this.projects = response.data.results.data
-                    this.loading = false
-                })
-                .catch(error => {
-                    console.log(error);
-                    this.error = error.message
-                })
-        },
-        getImagePath(path) {
-            return path;
-        }
-    },
-    mounted() {
-        const url = this.base_url + this.projects_API
-        this.getProjects(url)
-    }
 }
 </script>
 
