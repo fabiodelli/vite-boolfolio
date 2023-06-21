@@ -1,12 +1,10 @@
 <script>
-import Jumbo from './components/Jumbo.vue';
 import AppHeader from './components/AppHeader.vue';
 import axios from 'axios';
 
 export default {
     components: {
-        AppHeader,
-        Jumbo
+        AppHeader      
     },
 }
 </script>
@@ -14,7 +12,6 @@ export default {
 <template>
 
     <app-header></app-header>
-    <jumbo></jumbo>  
     <router-view></router-view>
 
 </template>

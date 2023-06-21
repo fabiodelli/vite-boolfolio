@@ -11,7 +11,8 @@ export default {
             projects: null,
             error: null,
             max_text_length : 150, 
-            no_text:'N/A'       
+            no_text:'N/A',   
+             
         }
     },
     methods: {
@@ -29,7 +30,8 @@ export default {
                 })
         },
         getImagePath(path) {
-            return path;
+        
+            return this.base_url + 'img/' + path;
         },
         prevPage(path) {
             console.log(path);
@@ -62,7 +64,7 @@ export default {
 </script>
 <template>
     <div class="container">
-        <h1>Home page</h1>
+        <h1>Projects</h1>
 
         <div v-if="loading === false" class="row">
             <div class="col-6  p-2" v-for="project in projects.data">
@@ -71,12 +73,11 @@ export default {
                     <div class="card mb-3 h-100 p-3 ">
                         <div class="row g-0">
     
-                            <div class="col-md-6 mb-3">
-                                <img :src="getImagePath(project.cover_image)" class="img-fluid rounded-start"
-                                    alt="{{ project.title }}">
+                            <div class="col-6 mb-3">
+                                <img :src="getImagePath(project.cover_image)" class="img-fluid" alt="{{ project.title }}">
                             </div>
     
-                            <div class="col-md-6">
+                            <div class="col-6">
                                 <div class="card-body">
                                     <h5 class="card-title">{{ project.title }}</h5>
                                     <p>
@@ -96,7 +97,7 @@ export default {
                                 <div class="mb-2">Technologies:</div>
                                 <div>
                                     <span class="me-2" v-for="technology in project.technologies">
-                                        <img height="70" :src="technology.logo" alt="">
+                                        <img height="40" :src="technology.logo" alt="">
                                     </span>
                                 </div>
                             </strong>
