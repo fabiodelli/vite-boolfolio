@@ -61,71 +61,7 @@ export default {
 
 </script>
 <template>
-    <div class="container">
-        <h1>Home page</h1>
-
-        <div v-if="loading === false" class="row">
-            <div class="col-6  p-2" v-for="project in projects.data">
-                <router-link class="text-decoration-none" :to="{name: 'single-project', params: {'slug': project.slug}}">
-
-                    <div class="card mb-3 h-100 p-3 ">
-                        <div class="row g-0">
     
-                            <div class="col-md-6 mb-3">
-                                <img :src="getImagePath(project.cover_image)" class="img-fluid rounded-start"
-                                    alt="{{ project.title }}">
-                            </div>
-    
-                            <div class="col-md-6">
-                                <div class="card-body">
-                                    <h5 class="card-title">{{ project.title }}</h5>
-                                    <p>
-                                        {{ truncateText(project.content) }}
-                                    </p>
-                                    
-                                </div>
-                            </div>
-    
-                            <strong class="mb-2" v-if="project.type"> Type:
-                                <span class="bg-primary rounded-5 p-1 ps-2 pe-2 text-white "> {{ project.type.type }}</span>
-                            </strong>
-    
-                            <strong v-else>Type: N/A</strong>
-    
-                            <strong v-if="project.technologies.length > 0">
-                                <div class="mb-2">Technologies:</div>
-                                <div>
-                                    <span class="me-2" v-for="technology in project.technologies">
-                                        <img height="70" :src="technology.logo" alt="">
-                                    </span>
-                                </div>
-                            </strong>
-                            <strong v-else>Tecnologies: N/A</strong>
-    
-                        </div>
-                    </div>
-                </router-link>
-
-            </div>
-        </div>
-        <nav aria-label="Page navigation" class="py-4 text-center">
-            <ul class="pagination    ">
-                <li class="page-item">
-                    <button class="page-link" aria-label="Previous" v-if="projects && projects.prev_page_url"
-                        @click="prevPage(projects.prev_page_url)">
-                        <span aria-hidden="true">&laquo;</span>
-                    </button>
-                </li>
-                <li class="page-item">
-                    <button class="page-link" aria-label="Next" v-if="projects && projects.next_page_url"
-                        @click="nextPage(projects.next_page_url)">
-                        <span aria-hidden="true">&raquo;</span>
-                    </button>
-
-                </li>
-            </ul>
-        </nav>
-    </div>
 </template>
 
 

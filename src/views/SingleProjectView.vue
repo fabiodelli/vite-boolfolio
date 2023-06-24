@@ -47,45 +47,43 @@ export default {
   <div class="container">
 
     <h1>
-      {{ project && project.title ? project.title : N / A }}
+      {{ project && project.title ? project.title : N/A }}
     </h1>
 
     <div class="row">
 
-      <div class="col-6">
+      <div class="col-9">
         <div v-if="project && project.cover_image">
           <img class="img-fluid" :src="getImageFromPath(project.cover_image)" alt="">
         </div>
         <P v-else>N/A</P>
       </div>
 
-      <div class="col-6">
-        
+      <div class="col-3">
+
         <strong>Content:</strong>
 
-        <p>{{ project && project.content ? project.content : N / A }}</p>
+        <p style="word-wrap: break-word; max-width: 100%;">{{ project && project.content ? project.content : N/A }}</p>
 
         <div>
-          <strong>Type:</strong>
+          <strong class="mb-5">Type:</strong>
 
-          <div v-if="project && project.type" class="bg-primary rounded-5 p-1 ps-2 pe-2 text-white">
+          <span  class="bg-primary rounded-5 p-1 ps-2 pe-2 ms-2 text-white w-25 ">
 
-            {{ project.type.type }}
+            {{project && project.type ? project.type.type : N/A }}
 
-          </div>
+          </span>
 
-          <span v-else>N/A</span>
+          <br><br>
 
-          <br>
+          <strong class="d-inline mt-5">Technology:</strong>
 
-          <strong>Technology: </strong>
-
-          <span class="d-flex gap-3 m-2" v-if="project && project.technologies">
-
-            <div v-for="technology in project.technologies">
-              <img height="70" :src="technology.logo" alt="">
-            </div>
-
+          <span class="d-inline-flex flex-wrap gap-3 m-2" v-if="project && project.technologies">
+            
+            <span v-for="technology in project.technologies" class="d-inline">             
+              <img class="d-inline" height="40" :src="technology.logo" alt="">           
+            </span>
+          
           </span>
 
           <span v-else>N/A</span>
