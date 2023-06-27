@@ -1,3 +1,5 @@
 // Import all of Bootstrap's CSS
 @use "../styles/partials/header.scss";
+@use "../styles/partials/home.scss";
+@use "../styles/partials/about.scss";
 @import "/node_modules/bootstrap/scss/bootstrap";
