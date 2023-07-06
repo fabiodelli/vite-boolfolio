@@ -4,16 +4,16 @@ import axios from 'axios';
 
 export default {
     components: {
-        AppHeader      
+        AppHeader
     },
 }
 </script>
 
 <template>
-
-    <app-header></app-header>
-    <router-view></router-view>
-
+    <div class="bg">
+        <app-header></app-header>
+        <router-view></router-view>
+    </div>
 </template>
 
 <style lang="scss">

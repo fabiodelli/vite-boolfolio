@@ -4,7 +4,7 @@ export default {
 }
 </script>
 <template>
-    <div class="container">
+    <div class="container mt-5">
         <h1>Contacts page</h1>
 
         <div class="mb-3">

@@ -5,11 +5,13 @@ export default {
 </script>
 <template>
     <div class="container d-flex">
-        <div class="col-6 d-flex justify-content-center align-items-center">
+        <div class="col-6  d-flex justify-content-center align-items-center h_100">
             <div class="about_text">
                 <h1>ABOUT ME</h1>
-                <strong> Sono un appassionato junior web developer con una solida formazione full stack. Ho frequentato un corso
-                    intensivo a tempo pieno presso Boolean, mirato a sviluppare le competenze necessarie per affrontare il mondo
+                <strong> Sono un appassionato junior web developer con una solida formazione full stack. Ho frequentato un
+                    corso
+                    intensivo a tempo pieno presso Boolean, mirato a sviluppare le competenze necessarie per affrontare il
+                    mondo
                     dello sviluppo web in modo completo. Durante i sei mesi di corso, ho approfondito le mie conoscenze in
                     JavaScript, Vue JS, PHP, MySQL, Laravel, nonché HTML e CSS.
 
@@ -21,11 +23,9 @@ export default {
                 </strong>
             </div>
         </div>
-        <div class="col-6 ">
+        <div class="col-6 d-flex justify-content-center align-items-center">
             <img class="blu" src="../../public/img/blobblu.svg" alt="">
-            <img class="rosa" src="../../public/img/blobrosa.svg" alt="">
-            <img  class="verde" src="../../public/img/blobverde.svg" alt="">
-            <img class="fabio" src="../../public/img/FabioDelli.png" alt="">
+            <img class="fabio " src="../../public/img/FabioDelli.png" alt="">
         </div>
     </div>
 </template>

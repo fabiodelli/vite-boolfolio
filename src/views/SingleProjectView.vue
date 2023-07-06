@@ -44,9 +44,9 @@ export default {
 </script>
 
 <template>
-  <div class="container">
+  <div class="container mt-5">
 
-    <h1>
+    <h1 class="mb-3">
       {{ project && project.title ? project.title : N/A }}
     </h1>
 

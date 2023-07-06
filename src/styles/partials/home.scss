@@ -1,34 +1,14 @@
-*{
-    overflow: hidden;
-}
+
 .fabio{
     position: absolute;
     width: 300px;
     right: 20%;
 }
 
-.verde{
-    position: absolute;
-    width: 500px;
-    right: 40%;
-    top: 10%;
-    z-index: -1;
-    rotate: 30deg;
-}
-.rosa{
-    position: absolute;
-    width: 500px;
-    right: 60%;
-    top: 30%;
-    z-index: -1;
-}
-.blu{
-    position: absolute;
-    width: 700px;
-    z-index: -1;
-}
 .home_text{
-    position: absolute;
-    top: calc(50% - 48px);
     font-size: 50px;
+}
+
+.h_100{
+    height: calc(100vh - 70px);
 }

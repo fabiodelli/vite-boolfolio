@@ -4,7 +4,7 @@ export default {
 }
 </script>
 <template>
-    <header class="mb-5">
+    <header>
         <nav class="nav" >
             <router-link class="nav-link active text-white" :to="{ 'name': 'home' }" aria-current="page">Home </router-link>
             <router-link class="nav-link text-white" :to="{ 'name': 'projects' }" aria-current="page">Projects </router-link>
