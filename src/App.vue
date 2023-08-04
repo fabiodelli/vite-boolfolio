@@ -1,10 +1,12 @@
 <script>
 import AppHeader from './components/AppHeader.vue';
+import AppFooter from './components/AppFooter.vue';
 import axios from 'axios';
 
 export default {
     components: {
-        AppHeader
+        AppHeader,
+        AppFooter
     },
 }
 </script>
@@ -13,6 +15,7 @@ export default {
     <div class="bg">
         <app-header></app-header>
         <router-view></router-view>
+        <app-footer></app-footer>
     </div>
 </template>
 

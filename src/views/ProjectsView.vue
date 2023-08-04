@@ -64,7 +64,27 @@ export default {
 </script>
 <template>
     <div class="container mt-5">
-        <h1>Projects</h1>
+        <div class="d-flex justify-content-between">
+            <h1>Projects</h1>
+            <nav aria-label="Page navigation" class="py-4 text-center">
+            <ul class="pagination">
+                <li class="page-item">
+                    <button class="page-link" aria-label="Previous" 
+                        @click="prevPage(projects.prev_page_url)">
+                        <span aria-hidden="true"><i class="fa-solid fa-arrow-left"></i></span>
+                    </button>
+                </li>
+                <li class="page-item">
+                    <button class="page-link" aria-label="Next" 
+                        @click="nextPage(projects.next_page_url)">
+                        <span aria-hidden="true"><i class="fa-solid fa-arrow-right"></i></span>
+                    </button>
+
+                </li>
+            </ul>
+        </nav>
+
+        </div>
 
         <div v-if="loading === false" class="row">
             <div class="col-6  p-2" v-for="project in projects.data">
@@ -84,23 +104,6 @@ export default {
 
             </div>
         </div>
-        <nav aria-label="Page navigation" class="py-4 text-center">
-            <ul class="pagination">
-                <li class="page-item">
-                    <button class="page-link" aria-label="Previous" v-if="projects && projects.prev_page_url"
-                        @click="prevPage(projects.prev_page_url)">
-                        <span aria-hidden="true">&laquo;</span>
-                    </button>
-                </li>
-                <li class="page-item">
-                    <button class="page-link" aria-label="Next" v-if="projects && projects.next_page_url"
-                        @click="nextPage(projects.next_page_url)">
-                        <span aria-hidden="true">&raquo;</span>
-                    </button>
-
-                </li>
-            </ul>
-        </nav>
     </div>
 </template>
 
