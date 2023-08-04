@@ -1,5 +1,6 @@
 // Import all of Bootstrap's CSS
 @use "../styles/partials/header.scss";
+@use "../styles/partials/footer.scss";
 @use "../styles/partials/home.scss";
 @use "../styles/partials/about.scss";
 @import "/node_modules/bootstrap/scss/bootstrap";
@@ -9,3 +10,6 @@
     background-size: cover;
     min-height: 100vh;
 }
+/* *{
+    border: 1px solid black;
+} */
