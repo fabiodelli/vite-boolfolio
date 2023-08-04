@@ -63,7 +63,7 @@ export default {
 
 </script>
 <template>
-    <div class="container mt-5">
+    <div class="container mt-5 min-vh-100">
         <div class="d-flex justify-content-between">
             <h1>Projects</h1>
             <nav aria-label="Page navigation" class="py-4 text-center">
@@ -85,25 +85,26 @@ export default {
         </nav>
 
         </div>
-
-        <div v-if="loading === false" class="row">
-            <div class="col-6  p-2" v-for="project in projects.data">
-                <router-link class="text-decoration-none"
-                    :to="{ name: 'single-project', params: { 'slug': project.slug } }">
-
-                    <div class="card mb-3 h-100 p-3 ">
-                        <div class="row g-0">
-
-                            <div class="col mb-3">
-                                <img :src="getImageFromPath(project.cover_image)" class="img-fluid" :alt="project.title">
+        
+            <div v-if="loading === false" class="row">
+                <div class="col-6  p-2" v-for="project in projects.data">
+                    <router-link class="text-decoration-none"
+                        :to="{ name: 'single-project', params: { 'slug': project.slug } }">
+    
+                        <div class="card mb-3 h-100 p-3 ">
+                            <div class="row g-0">
+    
+                                <div class="col mb-3">
+                                    <img :src="getImageFromPath(project.cover_image)" class="img-fluid" :alt="project.title">
+                                </div>
+    
                             </div>
-
                         </div>
-                    </div>
-                </router-link>
-
+                    </router-link>  
+                </div>
             </div>
-        </div>
+        
+
     </div>
 </template>
 
