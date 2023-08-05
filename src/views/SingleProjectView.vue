@@ -44,11 +44,15 @@ export default {
 </script>
 
 <template>
-  <div class="container mt-5">
+  <div class="container mt-5 min-vh-100">
+
+<!-- --------------------------------------------------------------------- -->
 
     <h1 class="mb-3">
-      {{ project && project.title ? project.title : N/A }}
+      {{ project && project.title ? project.title : N / A }}
     </h1>
+
+    <!-- --------------------------------------------------------------------- -->
 
     <div class="row">
 
@@ -59,35 +63,46 @@ export default {
         <P v-else>N/A</P>
       </div>
 
+      <!-- --------------------------------------------------------------------- -->
+
       <div class="col-3">
 
         <strong>Content:</strong>
 
-        <p style="word-wrap: break-word; max-width: 100%;">{{ project && project.content ? project.content : N/A }}</p>
+        <p style="word-wrap: break-word; max-width: 100%;">{{ project && project.content ? project.content : N / A }}</p>
+
+        <!-- --------------------------------------------------------------------- -->
+
+        <strong class="mb-5">Type:</strong>
+
+        <span class="bg-primary rounded-5 p-1 ps-2 pe-2 ms-2 text-white w-25 ">
+
+          {{ project && project.type ? project.type.type : N / A }}
+
+        </span>
+
+        <!-- --------------------------------------------------------------------- -->
+
+        <br><br>
+
+        <strong class="d-inline mt-5">Technology:</strong>
+
+        <span class="d-inline-flex flex-wrap gap-3 m-2" v-if="project && project.technologies">
+
+          <span v-for="technology in project.technologies" class="d-inline">
+            <img class="d-inline" height="40" :src="technology.logo" alt="">
+          </span>
+
+        </span>
+
+        <span v-else>N/A</span>
+
+        <!-- --------------------------------------------------------------------- -->
 
         <div>
-          <strong class="mb-5">Type:</strong>
-
-          <span  class="bg-primary rounded-5 p-1 ps-2 pe-2 ms-2 text-white w-25 ">
-
-            {{project && project.type ? project.type.type : N/A }}
-
-          </span>
-
-          <br><br>
-
-          <strong class="d-inline mt-5">Technology:</strong>
-
-          <span class="d-inline-flex flex-wrap gap-3 m-2" v-if="project && project.technologies">
-            
-            <span v-for="technology in project.technologies" class="d-inline">             
-              <img class="d-inline" height="40" :src="technology.logo" alt="">           
-            </span>
-          
-          </span>
-
-          <span v-else>N/A</span>
-
+          <a class="text-black text-decoration-none" :href="project && project.git ? project.git : '#'" target="_blank">
+            <strong>Github</strong>
+          </a>
         </div>
 
       </div>
