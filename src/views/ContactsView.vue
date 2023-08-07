@@ -47,7 +47,7 @@ export default {
 }
 </script>
 <template>
-    <div class="container mt-5">
+    <div class="container-60 m-auto mt-5">
         <h1>Contacts page</h1>
 
         <div class="alert alert-success" role="alert" v-if="success">

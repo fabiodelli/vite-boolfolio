@@ -63,7 +63,7 @@ export default {
 
 </script>
 <template>
-    <div class="container mt-5 min-vh-100">
+    <div class="container mt-5 h-100 ">
         <div class="d-flex justify-content-between">
             <h1>Projects</h1>
             <nav aria-label="Page navigation" class="py-4 text-center">
