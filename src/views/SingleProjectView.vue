@@ -57,15 +57,15 @@ export default {
     <div class="row">
 
       <div class="col-9">
-        <div v-if="project && project.cover_image">
-          <img class="img-fluid" :src="getImageFromPath(project.cover_image)" alt="">
+        <div v-if="project && project.full_image">
+          <img class="img-fluid" :src="getImageFromPath(project.full_image)" alt="">
         </div>
         <P v-else>N/A</P>
       </div>
 
       <!-- --------------------------------------------------------------------- -->
 
-      <div class="col-3">
+      <div class="col-3 about_text">
 
         <strong>Content:</strong>
 

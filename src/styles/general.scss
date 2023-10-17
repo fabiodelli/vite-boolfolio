@@ -8,13 +8,30 @@
 
 .bg{
     background-image: url(../../public/img/bg.jpg);
-    background-size: cover;
-    min-height: 100vh;
 }
 
 .overlay{
     background-color: rgba($color: #000000, $alpha: 0.2);
 }
-/* *{
-    border: 1px solid black;
-} */
+
+.nuvoletta {
+    width: 100px;
+    position: absolute;
+    top: 20%; 
+    left: -100px; 
+    animation: sposta-nuvoletta 20s linear infinite; 
+  }
+  
+  @keyframes sposta-nuvoletta {
+    0% {
+      left: -100px;
+      top: 20%;
+    }
+    100% {
+      left: 90%;
+      top: 80%;
+      
+    }
+  }
+  
+  
