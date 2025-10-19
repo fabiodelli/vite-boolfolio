@@ -33,9 +33,14 @@ export default {
 </script>
 <template>
     <div class="container d-flex">
-        <div class="col-6 d-flex align-items-center h_100">
-            <h1 class="home_text animated-title">HI I'M FABIO <br>{{ animatedText }}</h1>
+        <div class="d-flex align-items-center">
+        
+            <h1 class="home_text animated-title col-4">HI I'M FABIO <br>{{ animatedText }} <br> AND THIS IS MY PORTFOLIO</h1>
+            
+            <img src="../../public/img/home.png" class="img-home col-8" alt="">
+    
         </div>
+        
     </div>
 </template>
 

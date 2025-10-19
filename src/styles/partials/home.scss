@@ -7,9 +7,16 @@
 
 .home_text{
     font-size: 50px;
-    color: white;
+    font-family: random($limit: 10);
+    color: rgb(0, 0, 0);
+    width: 300px;
 }
 
 .h_100{
     height: calc(100vh - 70px);
+}
+
+.img-home{
+    width: 100%;
+        
 }
