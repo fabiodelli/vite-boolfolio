@@ -111,100 +111,67 @@ export default {
 </script>
 
 <template>
-  <div class="container mt-5 h-100">
+  <div class="container mt-5 h-100 text-center">
     <h1>Projects</h1>
 
     <!-- RESET -->
     <div class="mb-2">
-      <button class="btn btn-outline-secondary btn-sm" @click="resetFilters()">Reset Filters</button>
+      <button @click="resetFilters()" :class="selectedType === null ? 'filter_button_selected' : 'filter_button'">
+        ALL PROJECTS
+      </button>
     </div>
 
     <!-- FILTRI PER TIPO -->
     <div class="mb-3">
-      <strong>Filter by Type:</strong>
-      <button
-        v-for="type in types"
-        :key="type"
-        @click="filterByType(type)"
-        :class="[
-          'btn',
-          selectedType === type ? 'btn-primary' : 'btn-outline-primary',
-          'm-1'
-        ]"
-      >
+
+      <button v-for="type in types" :key="type" @click="filterByType(type)" :class="[
+
+        selectedType === type ? 'filter_button_selected' : 'filter_button',
+
+      ]">
         {{ type }}
       </button>
     </div>
 
     <!-- FILTRI PER TECNOLOGIA -->
     <div class="mb-3">
-      <strong>Filter by Technology:</strong>
-      <button
-        v-for="tech in technologies"
-        :key="tech"
-        @click="filterByTechnology(tech)"
-        :class="[
-          'btn',
-          selectedTechnology === tech ? 'btn-success' : 'btn-outline-success',
-          'm-1'
-        ]"
-      >
+
+      <button v-for="tech in technologies" :key="tech" @click="filterByTechnology(tech)" :class="[
+
+        selectedTechnology === tech ? 'filter_button_selected' : 'filter_button',
+
+      ]">
         {{ tech }}
       </button>
     </div>
 
     <!-- ELENCO PROGETTI (USO filteredProjects) -->
     <div v-if="loading === false" class="row">
-      <div
-        class="p-2"
-        v-for="(project, index) in filteredProjects"
-        :key="project.id"
-      >
-        <router-link
-          class="text-decoration-none"
-          :to="{ name: 'single-project', params: { slug: project.slug } }"
-        >
+      <div class="p-2" v-for="(project, index) in filteredProjects" :key="project.id">
+        <router-link class="text-decoration-none" :to="{ name: 'single-project', params: { slug: project.slug } }">
           <div class="card h-100">
-            <div class="row g-0 align-items-center">
+            <div class="row g-0 align-items-center ">
               <!-- Immagine a sinistra (indici pari) -->
               <div v-if="index % 2 === 0" class="row g-0 align-items-center">
-                <div class="col-md-6 text-center">
-                  <img
-                    :src="getImageFromPath(project.cover_image)"
-                    class="img-fluid rounded"
-                    :alt="project.title"
-                  />
+                <div class="col-md-8 text-center">
+                  <img :src="getImageFromPath(project.cover_image)" class="img-fluid rounded" :alt="project.title" />
                 </div>
-                <div class="col-md-6 d-flex flex-column align-items-center">
-                  <p class="m-3" style="word-wrap: break-word; max-width: 100%">
+                <div class="col-md-4 d-flex flex-column align-items-start">
+                  <p class="m-3" style="word-wrap: break-word; max-width: 100% ">
                     {{ project.content || "N/A" }}
                   </p>
-                  <div>
-                    <strong class="d-inline mt-5">Type:</strong>
-                    <span
-                      class="bg-primary rounded-5 p-1 ps-2 pe-2 ms-2 text-white"
-                    >
+                  <div class=" w-100 p-3">
+
+                    <span class="bg-primary rounded-5 p-1 ps-2 pe-2 ms-2 text-white">
                       {{ project.type ? project.type.type : "N/A" }}
                     </span>
 
                     <br /><br />
 
-                    <strong class="d-inline mt-5">Technology:</strong>
-                    <span
-                      class="d-inline-flex flex-wrap gap-3 m-2"
-                      v-if="project.technologies"
-                    >
-                      <span
-                        v-for="technology in project.technologies"
-                        :key="technology.id"
-                        class="d-inline"
-                      >
-                        <img
-                          class="d-inline"
-                          height="40"
-                          :src="technology.logo"
-                          :alt="technology.name"
-                        />
+
+                    <span class="d-inline-flex flex-wrap gap-3 m-2" v-if="project.technologies">
+                      <span v-for="technology in project.technologies" :key="technology.id" class="d-inline">
+                        <img class="d-inline" height="40" :src="technology.logo" :alt="technology.name" />
                       </span>
                     </span>
                   </div>
@@ -213,43 +180,25 @@ export default {
 
               <!-- Immagine a destra (indici dispari) -->
               <div v-else class="row g-0 align-items-center flex-row-reverse">
-                <div class="col-md-6 text-center">
-                  <img
-                    :src="getImageFromPath(project.cover_image)"
-                    class="img-fluid rounded"
-                    :alt="project.title"
-                  />
+                <div class="col-md-8 text-center">
+                  <img :src="getImageFromPath(project.cover_image)" class="img-fluid rounded" :alt="project.title" />
                 </div>
-                <div class="col-md-6 d-flex flex-column align-items-center">
+                <div class="col-md-4 d-flex flex-column align-items-center">
                   <p class="m-3" style="word-wrap: break-word; max-width: 100%">
                     {{ project.content || "N/A" }}
                   </p>
-                  <div>
+                  <div class="w-100 p-3">
                     <strong class="d-inline mt-5">Type:</strong>
-                    <span
-                      class="bg-primary rounded-5 p-1 ps-2 pe-2 ms-2 text-white"
-                    >
+                    <span class="bg-primary rounded-5 p-1 ps-2 pe-2 ms-2 text-white">
                       {{ project.type ? project.type.type : "N/A" }}
                     </span>
 
                     <br /><br />
 
                     <strong class="d-inline mt-5">Technology:</strong>
-                    <span
-                      class="d-inline-flex flex-wrap gap-3 m-2"
-                      v-if="project.technologies"
-                    >
-                      <span
-                        v-for="technology in project.technologies"
-                        :key="technology.id"
-                        class="d-inline"
-                      >
-                        <img
-                          class="d-inline"
-                          height="40"
-                          :src="technology.logo"
-                          :alt="technology.name"
-                        />
+                    <span class="d-inline-flex flex-wrap gap-3 m-2" v-if="project.technologies">
+                      <span v-for="technology in project.technologies" :key="technology.id" class="d-inline">
+                        <img class="d-inline" height="40" :src="technology.logo" :alt="technology.name" />
                       </span>
                     </span>
                   </div>

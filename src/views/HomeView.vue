@@ -32,8 +32,8 @@ export default {
 
 </script>
 <template>
-    <div class="container d-flex">
-        <div class="d-flex align-items-center">
+    <div class="bg-white">
+        <div class="d-flex align-items-center p-5">
         
             <h1 class="home_text animated-title col-4">HI I'M FABIO <br>{{ animatedText }} <br> AND THIS IS MY PORTFOLIO</h1>
             

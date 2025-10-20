@@ -4,10 +4,12 @@
 @use "../styles/partials/home.scss";
 @use "../styles/partials/about.scss";
 @use "../styles/partials/contacts.scss";
+@use "../styles/partials/projects.scss";
+@import url('https://fonts.googleapis.com/css2?family=Saira:ital,wght@0,100..900;1,100..900&display=swap');
 @import "/node_modules/bootstrap/scss/bootstrap";
 
 .bg{
-    background-color: #ffffff;
+   background-color: #e4f3ff;
 }
 
 // .overlay{
@@ -35,11 +37,14 @@
   }
 
   .card{
-    background-color: #cadff1;
+    background-color: #ffffff;
     border: 2px solid black;
-
-    
+    box-shadow: 3px 3px 6px rgba(0, 0, 0, 0.4);    
   }
+
+  body {
+  font-family: 'saira', sans-serif;
+}
 
   
   
