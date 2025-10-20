@@ -9,7 +9,7 @@
 @import "/node_modules/bootstrap/scss/bootstrap";
 
 .bg{
-   background-color: #e4f3ff;
+   background-color: #ffffff;
 }
 
 // .overlay{
@@ -37,8 +37,9 @@
   }
 
   .card{
-    background-color: #ffffff;
-    border: 2px solid black;
+    background-color: #e4f3ff;
+    border: 3px solid black;
+    border-radius: 25px;
     box-shadow: 3px 3px 6px rgba(0, 0, 0, 0.4);    
   }
 

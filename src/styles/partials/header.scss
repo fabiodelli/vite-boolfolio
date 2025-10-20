@@ -1,5 +1,6 @@
 .nav{
    height: 70px;
+   background-color: #e4f3ff;
    display: flex;
    justify-content: center;
    align-items: center;
@@ -8,4 +9,17 @@
    color: black;
    border-bottom: 3px solid black;
    box-shadow: 3px 3px 6px rgba(0, 0, 0, 0.4);
+   padding: 20px!important;
+}
+
+.active_link{
+  background: rgb(0, 0, 0)!important;
+    border: 3px solid rgb(0, 0, 0);
+    color: white;
+    border-radius: 25px;
+    padding: 7px;
+    box-shadow: 3px 3px 6px rgba(0, 0, 0, 0.4);
+    text-transform: uppercase;
+    margin: 5px;
+    zoom: 1.3;
 }

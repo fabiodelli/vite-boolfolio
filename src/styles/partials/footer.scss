@@ -1,8 +1,11 @@
  .footer{
    margin-top: 3rem;
+   background-color: #e4f3ff;
    color: rgb(0, 0, 0);
    font-size: 20px;
    display: flex; 
    align-items: center;
-   z-index: 10; 
+   z-index: 10;
+   border-top: 3px solid black; 
+   
 } 
