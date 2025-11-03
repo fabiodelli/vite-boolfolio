@@ -8,44 +8,65 @@
 @import url('https://fonts.googleapis.com/css2?family=Saira:ital,wght@0,100..900;1,100..900&display=swap');
 @import "/node_modules/bootstrap/scss/bootstrap";
 
-.bg{
-   background-color: #ffffff;
+/* --- STRUTTURA BASE --- */
+
+
+
+html, body {
+  margin: 0;
+  padding: 0;
+  background-color: #ffffff; /* sfondo globale bianco */
+  overflow-x: hidden; /* previene scrollbar orizzontale */
 }
 
-// .overlay{
-//     background-color: rgba($color: #000000, $alpha: 0.2);
-// }
+.bg {
+  position: relative;
+  min-height: 100vh;
+  background-color: #ffffff;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
 
+.app-header {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+.main-content {
+  flex-grow: 1;
+  position: relative;
+  z-index: 1;
+  overflow-x: hidden;
+}
+
+.app-footer {
+  margin-top: 0;
+  background-color: #e4f3ff; /* colore corretto del footer */
+}
+
+/* --- IMMAGINE DECORATIVA --- */
 .nuvoletta {
-    width: 100px;
-    position: absolute;
-    top: 20%; 
-    left: -100px; 
-    animation: sposta-nuvoletta 20s linear infinite; 
-  }
-  
-  @keyframes sposta-nuvoletta {
-    0% {
-      left: -100px;
-      top: 20%;
-    }
-    100% {
-      left: 90%;
-      top: 80%;
-      
-    }
-  }
-
-  .card{
-    background-color: #e4f3ff;
-    border: 3px solid black;
-    border-radius: 25px;
-    box-shadow: 3px 3px 6px rgba(0, 0, 0, 0.4);    
-  }
-
-  body {
-  font-family: 'saira', sans-serif;
+  width: 100px;
+  position: fixed;
+  top: 20%;
+  left: -100px;
+  z-index: 0;
+  animation: sposta-nuvoletta 20s linear infinite;
 }
+
+@keyframes sposta-nuvoletta {
+  0% {
+    left: -100px;
+    top: 20%;
+  }
+  100% {
+    left: 90%;
+    top: 80%;
+  }
+}
+
 
   
   

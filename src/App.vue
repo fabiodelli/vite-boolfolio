@@ -12,15 +12,22 @@ export default {
 </script>
 
 <template>
-    <div class="bg">
-        <img src="../public/img/nuvoletta.png" alt="" class="nuvoletta">
-        <div class="overlay">
-            <app-header></app-header>
-            <router-view></router-view>
-            <app-footer></app-footer>
-        </div>
-    </div>
+  <div class="bg">
+    <img src="../public/img/nuvoletta.png" alt="" class="nuvoletta" />
+
+    <!-- HEADER SEMPRE SOPRA -->
+    <app-header class="app-header" />
+
+    <!-- CONTENUTO PRINCIPALE -->
+    <main class="main-content">
+      <router-view />
+    </main>
+
+    <!-- FOOTER SEMPRE IN FONDO -->
+    <app-footer class="app-footer" />
+  </div>
 </template>
+
    
 
 <style lang="scss">

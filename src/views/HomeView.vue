@@ -32,17 +32,17 @@ export default {
 
 </script>
 <template>
-    <div class="bg-white">
-        <div class="d-flex align-items-center p-5">
-        
-            <h1 class="home_text animated-title col-4">HI I'M FABIO <br>{{ animatedText }} <br> AND THIS IS MY PORTFOLIO</h1>
-            
-            <img src="../../public/img/home.png" class="img-home col-8" alt="">
-    
-        </div>
-        
-    </div>
+  <div class="home-section">
+    <h1 class="home_text">
+      HI I'M FABIO <br />
+      {{ animatedText }} <br />
+      AND THIS IS MY PORTFOLIO
+    </h1>
+
+    <img src="../../public/img/home.png" class="img-home" alt="" />
+  </div>
 </template>
+
 
 
 <style lang="scss">
