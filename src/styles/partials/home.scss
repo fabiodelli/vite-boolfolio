@@ -53,3 +53,220 @@
 @media (max-width: 576px) {
   .home_text { font-size: 24px; }
 }
+
+
+/* new home layout */
+
+/* Sezioni generali */
+.kpi-wrap,
+.stack-wrap,
+.featured-wrap,
+.timeline-wrap,
+.cta-wrap {
+    padding: 3rem 1rem;
+}
+
+/* Card stile portfolio */
+.card-like {
+    background-color: #eaf5ff !important;
+    border: 3px solid #000 !important;
+    border-radius: 25px !important;
+    box-shadow: 3px 3px 6px rgba(0, 0, 0, 0.4) !important;
+}
+
+/* KPI */
+.kpi-num {
+    font-size: 42px;
+    font-weight: 800;
+    line-height: 1;
+}
+
+.kpi-label {
+    text-transform: uppercase;
+    letter-spacing: .04em;
+}
+
+/* Titoli/sezioni */
+.section-title {
+    font-weight: 800;
+    margin-bottom: 1rem;
+}
+
+/* --- Tech logos grid --- */
+/* --- Tech logos grid (versione bilanciata) --- */
+.stack-logos {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(110px, 1fr));
+    gap: 1rem;
+    justify-items: center;
+}
+
+.tech-item {
+    text-align: center;
+}
+
+.tech-logo {
+    width: 90px;
+    height: 90px;
+    background: #fff;
+    border: 3px solid #000;
+    border-radius: 20px;
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.25);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    transition: transform .25s ease;
+}
+
+.tech-logo:hover {
+    transform: scale(1.07);
+}
+
+.tech-logo img {
+    width: 70%;
+    height: auto;
+    object-fit: contain;
+    display: block;
+}
+
+.tech-logo i {
+    font-size: 2rem;
+}
+
+.tech-placeholder {
+    font-weight: 700;
+    font-size: 1.5rem;
+}
+
+.tech-name {
+    margin-top: .4rem;
+    font-size: .85rem;
+    font-weight: 600;
+    text-transform: uppercase;
+}
+
+
+/* --- Project cover --- */
+.proj-cover-wrap {
+    width: 100%;
+    aspect-ratio: 16/9;
+    /* ritaglio pulito */
+    overflow: hidden;
+    /* taglia agli angoli della card */
+    border-bottom: 3px solid #000;
+    /* coerenza stile */
+}
+
+.proj-cover {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    /* riempie senza deformare */
+    display: block;
+}
+
+.proj-cover.placeholder {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #fff;
+    font-weight: 800;
+    letter-spacing: .08em;
+}
+
+/* Tag */
+.tag {
+    background: #fff;
+    border: 2px solid #000;
+    border-radius: 12px;
+    padding: .2rem .6rem;
+    font-size: .85rem;
+}
+
+/* Bottoni */
+.btn-ghost {
+    background: #fff;
+    border: 3px solid #000;
+    border-radius: 25px;
+    padding: .5rem 1rem;
+    box-shadow: 3px 3px 6px rgba(0, 0, 0, .3);
+    transition: all .2s ease;
+    text-transform: uppercase;
+}
+
+.btn-ghost:hover {
+    transform: scale(1.05);
+    background: #000;
+    color: #fff;
+}
+
+.btn-solid {
+    background: #000;
+    color: #fff;
+    border: 3px solid #000;
+    border-radius: 25px;
+    padding: .5rem 1rem;
+    box-shadow: 3px 3px 6px rgba(0, 0, 0, .3);
+    text-transform: uppercase;
+    transition: transform .2s ease;
+}
+
+.btn-solid:hover {
+    transform: scale(1.05);
+}
+
+/* Timeline */
+.timeline {
+    list-style: none;
+    padding-left: 0;
+    position: relative;
+    margin: 0;
+}
+
+.timeline:before {
+    content: "";
+    position: absolute;
+    left: 18px;
+    top: 0;
+    bottom: 0;
+    width: 3px;
+    background: #000;
+}
+
+.timeline li {
+    position: relative;
+    padding-left: 60px;
+    margin: 1.25rem 0;
+}
+
+.timeline .dot {
+    position: absolute;
+    left: 10px;
+    top: 6px;
+    width: 20px;
+    height: 20px;
+    border: 3px solid #000;
+    border-radius: 50%;
+    background: #fff;
+}
+
+.timeline .content .when {
+    font-weight: 800;
+}
+
+.timeline .content .title {
+    font-size: 1.05rem;
+}
+
+.timeline .content .note {
+    opacity: .9;
+}
+
+@media (max-width: 992px) {
+    .kpi-num {
+        font-size: 34px;
+    }
+}
