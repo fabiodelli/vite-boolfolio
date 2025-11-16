@@ -1,7 +1,16 @@
 <script>
 export default {
-    name: 'AppHeader'
-}
+  name: "AppHeader",
+
+  props: {
+    darkMode: {
+      type: Boolean,
+      default: false,
+    },
+  },
+
+  emits: ["toggle-theme"],
+};
 </script>
 
 <template>
@@ -19,5 +28,13 @@ export default {
                 Contacts
             </router-link>
         </nav>
+
+        <button
+        class="theme-toggle-btn filter_button"
+        @click="$emit('toggle-theme')"
+      >
+        <i v-if="darkMode" class="fa-solid fa-sun"></i>
+        <i v-else class="fa-solid fa-moon"></i>
+      </button>
     </header>
 </template>

@@ -1,0 +1,159 @@
+/* ============================================
+   DARK THEME — palette più morbida e coerente
+   Attivata con: body.dark-theme
+   ============================================ */
+
+/* SFONDO GENERALE */
+body.dark-theme,
+body.dark-theme .bg {
+  background-color: #020617; // blu notte molto scuro
+  color: #e5e7eb;
+}
+
+/* Testi principali (lascio il colore chiaro, senza invertire tutto a forza) */
+body.dark-theme h1,
+body.dark-theme h2,
+body.dark-theme h3,
+body.dark-theme h4,
+body.dark-theme h5 {
+  color: #f9fafb;
+}
+
+body.dark-theme p,
+body.dark-theme span,
+body.dark-theme li {
+  color: #e5e7eb;
+}
+
+/* LINK */
+body.dark-theme a {
+  color: #38bdf8; // azzurrino, non viola
+}
+
+body.dark-theme a:hover {
+  color: #7dd3fc;
+}
+
+/* NAVBAR & HEADER */
+body.dark-theme .nav {
+  background-color: #020617 !important;
+  border-bottom-color: #e5e7eb !important;
+  color: #e5e7eb !important;
+}
+
+/* FOOTER */
+body.dark-theme .app-footer,
+body.dark-theme .footer {
+  background-color: #020617 !important;
+  color: #e5e7eb !important;
+  border-top-color: #e5e7eb !important;
+}
+
+/* CARD / SEZIONI PRINCIPALI (stile portfolio) */
+body.dark-theme .card,
+body.dark-theme .project-card,
+body.dark-theme .card-like {
+  background-color: #020617 !important; // scuro
+  border: 3px solid #e5e7eb !important; // bordi chiari
+  color: #e5e7eb !important;
+  box-shadow: 3px 3px 8px rgba(0, 0, 0, 0.9) !important;
+}
+
+/* IMMAGINI CON BORDO (project, progetti etc.) */
+body.dark-theme .proj-cover,
+body.dark-theme .project-image,
+body.dark-theme .progect_img {
+  border-color: #e5e7eb !important;
+  box-shadow: 3px 3px 6px rgba(0, 0, 0, 0.9) !important;
+}
+
+/* BOTTONI FILTRO */
+body.dark-theme .filter_button {
+  background: transparent !important;
+  color: #e5e7eb !important;
+  border-color: #e5e7eb !important;
+}
+
+body.dark-theme .filter_button:hover {
+  background: #e5e7eb !important;
+  color: #020617 !important;
+}
+
+body.dark-theme .filter_button_selected {
+  background: #e5e7eb !important;
+  color: #020617 !important;
+  border-color: #e5e7eb !important;
+}
+
+/* PILL TYPE & TECH */
+body.dark-theme .type-pill {
+  background: #0ea5e9 !important; // azzurro acceso
+  color: #020617 !important;
+  border-color: #0ea5e9 !important;
+}
+
+body.dark-theme .tech-logo-pill {
+  background: #020617 !important;
+  border-color: #e5e7eb !important;
+}
+
+/* BOTTONI GHOST / SOLID */
+body.dark-theme .btn-ghost {
+  background: transparent !important;
+  color: #e5e7eb !important;
+  border-color: #e5e7eb !important;
+}
+
+body.dark-theme .btn-ghost:hover {
+  background: #e5e7eb !important;
+  color: #020617 !important;
+}
+
+body.dark-theme .btn-solid {
+  background: #e5e7eb !important;
+  color: #020617 !important;
+  border-color: #e5e7eb !important;
+}
+
+body.dark-theme .btn-solid:hover {
+  background: #020617 !important;
+  color: #e5e7eb !important;
+}
+
+/* TOGGLE TEMA */
+body.dark-theme .theme-toggle-btn {
+  background: #020617 !important;
+  color: #e5e7eb !important;
+  border-color: #e5e7eb !important;
+}
+/* ============================================
+   FIX COMPLETO: CONTAINER E SEZIONI BOOTSTRAP
+   ============================================ */
+
+body.dark-theme .container,
+body.dark-theme .container-fluid,
+body.dark-theme .container-sm,
+body.dark-theme .container-md,
+body.dark-theme .container-lg,
+body.dark-theme .container-xl,
+body.dark-theme .container-xxl,
+body.dark-theme section,
+body.dark-theme main,
+body.dark-theme .row,
+body.dark-theme .col,
+body.dark-theme .col-1,
+body.dark-theme .col-2,
+body.dark-theme .col-3,
+body.dark-theme .col-4,
+body.dark-theme .col-5,
+body.dark-theme .col-6,
+body.dark-theme .col-7,
+body.dark-theme .col-8,
+body.dark-theme .col-9,
+body.dark-theme .col-10,
+body.dark-theme .col-11,
+body.dark-theme .col-12 {
+  background-color: #020617 !important;  /* blu notte uniforme */
+  color: #e5e7eb !important;             /* testo chiaro */
+}
+
