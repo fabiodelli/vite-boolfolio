@@ -7,12 +7,6 @@ export default {
     <footer>
         <div class="footer pb-3 pt-3">
             <div class="container-60 m-auto d-flex">
-                <div class="w-100 d-flex justify-content-between align-items-center ">
-                    <router-link class="nav-link active filter_button" :to="{ 'name': 'home' }" aria-current="page">Home </router-link>
-                    <router-link class="nav-link filter_button" :to="{ 'name': 'projects' }" aria-current="page">Projects </router-link>
-                    
-                    <router-link class="nav-link filter_button" :to="{ 'name': 'contacts' }" aria-current="page">Contacts </router-link>
-                </div>
                 
                 <div class="w-100 d-flex justify-content-center">         
                     <div class="me-5">FIND ME ON</div>

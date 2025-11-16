@@ -33,7 +33,7 @@ export default {
       timeline: [
         { when: '2024', title: 'Formazione Full-Stack', note: 'HTML/CSS/JS, Vue, PHP' },
         { when: '2025', title: 'Stage Front-End', note: 'Componenti riutilizzabili' },
-        { when: 'Oggi',  title: 'Progetti personali',  note: 'UI/UX, performance' },
+        { when: 'Oggi', title: 'Progetti personali', note: 'UI/UX, performance' },
       ],
     };
   },
@@ -44,21 +44,21 @@ export default {
   },
 
   mounted() {
-  this.fetchProjects().then(() => {
-    console.log('[Home] techItems caricati:', this.techItems);
-  });
-},
+    this.fetchProjects().then(() => {
+      console.log('[Home] techItems caricati:', this.techItems);
+    });
+  },
 
   computed: {
     // KPI
     kpiProjects() { return this.projects.length; },
-    kpiSkills()   { return this.techItems.length; },
-    kpiYears()    { return Math.max(1, new Date().getFullYear() - this.startYear); },
+    kpiSkills() { return this.techItems.length; },
+    kpiYears() { return Math.max(1, new Date().getFullYear() - this.startYear); },
     kpi() {
       return [
-        { label: 'Progetti',   value: this.kpiProjects },
+        { label: 'Progetti', value: this.kpiProjects },
         { label: 'Tecnologie', value: this.kpiSkills },
-        { label: 'Anni',       value: this.kpiYears },
+        { label: 'Anni', value: this.kpiYears },
       ];
     },
 
@@ -175,8 +175,8 @@ export default {
     dlCV() { window.open('/cv.pdf', '_blank'); },
 
     projectTitle(p) { return p.title || p.name || 'Progetto'; },
-    projectDesc(p)  { return p.description || p.summary || ''; },
-    projectTags(p)  {
+    projectDesc(p) { return p.description || p.summary || ''; },
+    projectTags(p) {
       return Array.isArray(p.technologies)
         ? p.technologies.map(t => t?.name).filter(Boolean)
         : [];
@@ -199,32 +199,6 @@ export default {
       <img src="../../public/img/home.png" class="img-home" alt="Portfolio hero" />
     </section>
 
-    <!-- KPI (reali) -->
-    <section class="kpi-wrap container-xxl">
-      <div class="row g-4 justify-content-center">
-        <div v-for="k in kpi" :key="k.label" class="col-12 col-md-4">
-          <div class="pill card-like text-center py-4">
-            <div class="kpi-num">
-              <span v-if="loading.projects">…</span>
-              <span v-else>{{ k.value }}</span>
-            </div>
-            <div class="kpi-label">{{ k.label }}</div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- TECH STACK (reale, in stile “crypto bubble”) -->
-<section class="stack-wrap container-xxl">
-  <h3 class="section-title">Tecnologie</h3>
-
-  <div v-if="loading.projects" class="text-muted">Caricamento tecnologie…</div>
-  <div v-else-if="!techItems.length" class="text-muted">Nessuna tecnologia disponibile.</div>
-  <div v-else>
-    <TechBubbles :items="techItems" :height="360" :minSize="70" :maxSize="110" />
-  </div>
-</section>
-
 
     <!-- FEATURED PROJECTS (reali, con cover) -->
     <section class="featured-wrap container-xxl">
@@ -237,10 +211,11 @@ export default {
       <div v-else-if="!featured.length" class="text-muted">Nessun progetto in evidenza.</div>
       <div v-else class="row g-4">
         <div v-for="(p, i) in featured" :key="i" class="col-12 col-md-4">
-          <article class="card-like h-100 d-flex flex-column overflow-hidden">
+          <article class="card-like h-100 d-flex flex-column overflow-hidden featured-card" @click="goProjects">
             <!-- Cover progetto -->
             <div class="proj-cover-wrap">
-              <img v-if="projectImage(p)" :src="projectImage(p)" :alt="projectTitle(p)" class="proj-cover" @error="onImgError" />
+              <img v-if="projectImage(p)" :src="projectImage(p)" :alt="projectTitle(p)" class="proj-cover"
+                @error="onImgError" />
               <div v-else class="proj-cover placeholder">N/A</div>
             </div>
 
@@ -249,14 +224,26 @@ export default {
               <h5 class="mb-2">{{ projectTitle(p) }}</h5>
               <p class="mb-3">{{ projectDesc(p) }}</p>
               <div class="d-flex flex-wrap gap-2 mb-3">
-                <span v-for="t in projectTags(p)" :key="t" class="tag">{{ t }}</span>
+                <span v-for="t in projectTags(p)" :key="t" class="btn-ghost">{{ t }}</span>
               </div>
-              <button class="btn-ghost mt-auto align-self-start" @click="goProjects">Apri</button>
             </div>
           </article>
         </div>
       </div>
     </section>
+
+
+    <!-- TECH STACK (reale, in stile “crypto bubble”) -->
+    <section class="stack-wrap container-xxl">
+      <h3 class="section-title">Tecnologie</h3>
+
+      <div v-if="loading.projects" class="text-muted">Caricamento tecnologie…</div>
+      <div v-else-if="!techItems.length" class="text-muted">Nessuna tecnologia disponibile.</div>
+      <div v-else>
+        <TechBubbles :items="techItems" :height="360" :minSize="70" :maxSize="110" />
+      </div>
+    </section>
+
 
     <!-- TIMELINE -->
     <section class="timeline-wrap container-xxl">

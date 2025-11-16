@@ -270,3 +270,15 @@
         font-size: 34px;
     }
 }
+
+/* Hover animazione card featured */
+.featured-card {
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+  cursor: pointer;
+}
+
+.featured-card:hover {
+  transform: scale(1.04);
+  box-shadow: 6px 6px 12px rgba(0,0,0,0.35) !important;
+}
+
