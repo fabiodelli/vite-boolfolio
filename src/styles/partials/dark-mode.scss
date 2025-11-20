@@ -10,7 +10,7 @@ body.dark-theme .bg {
   color: #e5e7eb;
 }
 
-/* Testi principali (lascio il colore chiaro, senza invertire tutto a forza) */
+/* Testi principali */
 body.dark-theme h1,
 body.dark-theme h2,
 body.dark-theme h3,
@@ -41,6 +41,38 @@ body.dark-theme .nav {
   color: #e5e7eb !important;
 }
 
+body.dark-theme header .nav .nav-link.filter_button {
+  background: #0f172a !important;     /* blu notte leggermente più chiaro */
+  color: #e5e7eb !important;
+  border-color: #e5e7eb !important;
+  box-shadow: 3px 3px 6px rgba(0,0,0,0.8) !important;
+}
+
+/* HOVER */
+body.dark-theme header .nav .nav-link.filter_button:hover:not(.active_link) {
+  background: #1e293b !important;     /* un gradino più chiaro */
+  color: #ffffff !important;
+}
+
+/* ACTIVE (solo dark) */
+body.dark-theme header .nav .nav-link.filter_button.active_link,
+body.dark-theme header .nav .nav-link.filter_button.router-link-exact-active {
+  background-color: #e5e7eb !important;
+  color: #020617 !important;
+  border-color: #e5e7eb !important;
+}
+
+/* Bottoni nav attivi SOLO in dark mode */
+body.dark-theme header .nav .nav-link.filter_button.active_link,
+body.dark-theme header .nav .nav-link.filter_button.router-link-exact-active {
+  background-color: #ffffff !important;
+  color: #000000 !important;
+  border-color: #ffffff !important;
+  transform: scale(1.18);
+  position: relative;
+  z-index: 2;
+}
+
 /* FOOTER */
 body.dark-theme .app-footer,
 body.dark-theme .footer {
@@ -67,7 +99,7 @@ body.dark-theme .progect_img {
   box-shadow: 3px 3px 6px rgba(0, 0, 0, 0.9) !important;
 }
 
-/* BOTTONI FILTRO */
+/* BOTTONI FILTRO / PILL GENERALI */
 body.dark-theme .filter_button {
   background: transparent !important;
   color: #e5e7eb !important;
@@ -126,9 +158,33 @@ body.dark-theme .theme-toggle-btn {
   color: #e5e7eb !important;
   border-color: #e5e7eb !important;
 }
-/* ============================================
+
+/* ============================
+   MENU MOBILE (header)
+   ============================ */
+
+/* Sfondo del menu mobile in dark mode */
+body.dark-theme .mobile-menu {
+  background-color: #020617 !important;
+  border-bottom-color: #e5e7eb !important;
+  box-shadow: 0 4px 8px rgba(15, 23, 42, 0.9) !important;
+}
+
+/* Link nel menu mobile (riusano filter_button) */
+body.dark-theme .mobile-menu .filter_button {
+  background: transparent !important;
+  color: #e5e7eb !important;
+  border-color: #e5e7eb !important;
+}
+
+body.dark-theme .mobile-menu .filter_button:hover {
+  background: #e5e7eb !important;
+  color: #020617 !important;
+}
+
+/* ============================
    FIX COMPLETO: CONTAINER E SEZIONI BOOTSTRAP
-   ============================================ */
+   ============================ */
 
 body.dark-theme .container,
 body.dark-theme .container-fluid,
@@ -155,5 +211,89 @@ body.dark-theme .col-11,
 body.dark-theme .col-12 {
   background-color: #020617 !important;  /* blu notte uniforme */
   color: #e5e7eb !important;             /* testo chiaro */
+}
+
+/* FOOTER — DARK MODE */
+body.dark-theme .footer {
+  background-color: #020617 !important;
+  color: #e5e7eb !important;
+  border-top-color: #e5e7eb !important;
+  box-shadow: 0 -3px 6px rgba(0, 0, 0, 0.7) !important;
+}
+
+body.dark-theme .footer-label {
+  color: #e5e7eb !important;
+}
+
+/* pill social in dark */
+body.dark-theme .social-pill-footer {
+  background: transparent !important;
+  border-color: #e5e7eb !important;
+  color: #e5e7eb !important;
+  box-shadow: 3px 3px 6px rgba(0, 0, 0, 0.9) !important;
+}
+
+body.dark-theme .social-pill-footer:hover {
+  background: #e5e7eb !important;
+  color: #020617 !important;
+}
+
+
+/* CONTATTI — DARK MODE */
+body.dark-theme .contacts-container {
+  background-color: #020617 !important;
+  color: #e5e7eb !important;
+}
+
+body.dark-theme .contact-title {
+  color: #e5e7eb !important;
+
+  .outlined {
+    -webkit-text-stroke: 3px #e5e7eb !important;
+  }
+}
+
+body.dark-theme .contact-card {
+  background: #020617 !important;
+  border-color: #e5e7eb !important;
+  color: #e5e7eb !important;
+}
+
+body.dark-theme .contact-avatar {
+  border-color: #e5e7eb !important;
+}
+
+body.dark-theme .email-box {
+  background: transparent !important;
+  border-color: #e5e7eb !important;
+}
+
+body.dark-theme .email-link {
+  color: #e5e7eb !important;
+}
+
+body.dark-theme .social-pill {
+  background: transparent !important;
+  border-color: #e5e7eb !important;
+  color: #e5e7eb !important;
+
+  &:hover {
+    background: #e5e7eb !important;
+    color: #020617 !important;
+  }
+}
+/* Wrapper principale della Home (bg-white di Bootstrap) */
+body.dark-theme .bg-white {
+  background-color: #020617 !important;
+  color: #e5e7eb !important;
+}
+
+/* Hero */
+body.dark-theme .home-section {
+  background-color: #020617 !important;
+}
+
+body.dark-theme .home_text {
+  color: #f9fafb !important;
 }
 
