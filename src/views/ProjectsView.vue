@@ -133,47 +133,37 @@ export default {
 </script>
 
 <template>
-  <div class="bg-white">
+  <div class="bg-transparent">
     <div class="container-xxl py-5">
 
       <!-- TITOLO + FILTRI -->
       <div class="text-center mb-4">
         <h1 class="page-title">PROJECTS</h1>
 
-        <!-- RESET -->
-        <div class="mb-2">
-          <button
-            @click="resetFilters()"
-            :class="selectedType === null && selectedTechnology === null
-              ? 'filter_button_selected'
-              : 'filter_button'"
-          >
-            All projects
-          </button>
-        </div>
+        <!-- FILTRI COMPATTI (Dropdown) -->
+        <div class="d-flex justify-content-center align-items-center flex-wrap gap-3 mb-4">
+          
+          <!-- Filter by Type -->
+          <select v-model="selectedType" class="filter-select">
+            <option :value="null">All Types</option>
+            <option v-for="type in types" :key="type" :value="type">
+              {{ type }}
+            </option>
+          </select>
 
-        <!-- FILTRI PER TIPO -->
-        <div class="mb-2">
-          <button
-            v-for="type in types"
-            :key="type"
-            @click="filterByType(type)"
-            :class="selectedType === type ? 'filter_button_selected' : 'filter_button'"
-          >
-            {{ type }}
-          </button>
-        </div>
+          <!-- Filter by Technology -->
+          <select v-model="selectedTechnology" class="filter-select">
+            <option :value="null">All Technologies</option>
+            <option v-for="tech in technologies" :key="tech" :value="tech">
+              {{ tech }}
+            </option>
+          </select>
 
-        <!-- FILTRI PER TECNOLOGIA -->
-        <div class="mb-3">
-          <button
-            v-for="tech in technologies"
-            :key="tech"
-            @click="filterByTechnology(tech)"
-            :class="selectedTechnology === tech ? 'filter_button_selected' : 'filter_button'"
-          >
-            {{ tech }}
+          <!-- Reset Button -->
+          <button @click="resetFilters()" class="btn-ghost" style="min-width: auto; padding: 0.5rem 1rem;">
+            Reset
           </button>
+
         </div>
       </div>
 

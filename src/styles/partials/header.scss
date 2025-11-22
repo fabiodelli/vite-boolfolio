@@ -10,16 +10,19 @@
 }
 
 /* NAV principale (override Bootstrap .nav) */
+/* NAV principale (override Bootstrap .nav) */
 header .nav {
   height: 70px;
-  background-color: #eaf5ff;
+  background-color: var(--tech-bg-glass);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
   display: flex;
   align-items: center;
-  justify-content: space-between; // centrato di base, poi header-nav sistema spacing
+  justify-content: space-between;
   padding: 0.75rem 1rem;
-  border-bottom: 3px solid #000;
-  box-shadow: 3px 3px 6px rgba(0, 0, 0, 0.4);
-  position: relative; // per la sovrapposizione dei bottoni
+  border-bottom: 1px solid var(--tech-border);
+  box-shadow: var(--tech-shadow);
+  position: relative;
   z-index: 1000;
 }
 
@@ -30,8 +33,102 @@ header .nav {
   justify-content: space-between;
   gap: 0.75rem;
   width: 100%;
-  max-width: 1200px;
-  margin: 0 auto;
+}
+
+/* brand opzionale */
+.brand {
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--tech-cyan);
+  text-shadow: 0 0 10px rgba(56, 189, 248, 0.5);
+}
+
+/* wrapper link desktop */
+.nav-links {
+  display: flex;
+  gap: 0.5rem;
+}
+
+/* area tema + burger */
+.nav-actions {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+/* bottoncino tema / burger */
+.theme-toggle-btn,
+.burger-btn {
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 18px;
+  padding-inline: 12px;
+  color: var(--tech-text-main);
+  transition: color 0.2s ease;
+
+  &:hover {
+    color: var(--tech-cyan);
+    text-shadow: 0 0 8px var(--tech-cyan);
+  }
+}
+
+/* BOTTONI NAV (router-link con .filter_button) */
+header .nav .nav-link.filter_button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  color: var(--tech-text-muted);
+  text-decoration: none;
+  font-size: 16px;
+  /* Slightly smaller for tech look */
+  font-weight: 600;
+  letter-spacing: 0.05em;
+
+  background: transparent;
+  border: 1px solid transparent;
+  border-radius: 8px;
+  /* Less rounded */
+  padding: 7px 16px;
+
+  margin: 0 2px;
+  box-shadow: none;
+  transition: all 0.3s ease;
+}
+
+/* Hover */
+header .nav .nav-link.filter_button:not(.active_link):hover {
+  color: var(--tech-cyan);
+  background: rgba(56, 189, 248, 0.1);
+  border-color: var(--tech-border);
+  box-shadow: 0 0 10px rgba(56, 189, 248, 0.2);
+  transform: translateY(-1px);
+}
+
+/* Stato attivo */
+header .nav .nav-link.filter_button.active_link,
+header .nav .nav-link.filter_button.router-link-exact-active {
+  background-color: rgba(56, 189, 248, 0.15) !important;
+  color: var(--tech-cyan) !important;
+  border: 1px solid var(--tech-cyan) !important;
+  box-shadow: 0 0 15px rgba(56, 189, 248, 0.3);
+  transform: scale(1.05);
+  position: relative;
+  z-index: 2;
+}
+
+/* layout interno specifico dell'header */
+.header-nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+  width: 100%;
+  // max-width: 1200px;
+  // margin: 0 auto;
 }
 
 /* brand opzionale */
@@ -105,6 +202,7 @@ header .nav .nav-link.filter_button.router-link-exact-active {
 
 /* --- Effetto sovrapposizione sul bordo inferiore (SOLO DESKTOP) --- */
 @media (min-width: 768px) {
+
   header .nav .nav-link.filter_button,
   header .nav .theme-toggle-btn,
   header .nav .burger-btn {

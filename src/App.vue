@@ -1,11 +1,13 @@
 <script>
 import AppHeader from './components/AppHeader.vue';
 import AppFooter from './components/AppFooter.vue';
+import ParticleBackground from './components/ParticleBackground.vue';
 
 export default {
   components: {
     AppHeader,
     AppFooter,
+    ParticleBackground,
   },
   data() {
     return {
@@ -36,7 +38,8 @@ export default {
 
 <template>
   <div class="bg">
-    <img src="../public/img/nuvoletta.png" alt="" class="nuvoletta" />
+    <ParticleBackground :darkMode="darkMode" />
+    <!-- <img src="../public/img/nuvoletta.png" alt="" class="nuvoletta" /> -->
 
     <!-- HEADER: passo stato + evento per il toggle -->
     <app-header

@@ -43,7 +43,7 @@ export default {
 </script>
 
 <template>
-  <div class="bg-white">
+  <div class="bg-transparent">
     <div class="container-xxl py-5 min-vh-100">
 
       <!-- HEADER / TITLE + BACK -->

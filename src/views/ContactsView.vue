@@ -7,10 +7,10 @@ export default {
 <template>
   <div class="contacts-container container-xxl py-5">
 
-    <div class="row align-items-center justify-content-between">
+    <div class="row align-items-center justify-content-center gap-lg-5">
 
       <!-- LEFT: TITOLONE -->
-      <div class="col-12 col-lg-6 mb-5 mb-lg-0">
+      <div class="col-12 col-lg-5 mb-5 mb-lg-0 text-center text-lg-start">
         <h1 class="contact-title page-title">
           Facciamo<br />
           <span class="outlined">qualcosa</span><br />

@@ -9,21 +9,54 @@
 @import url('https://fonts.googleapis.com/css2?family=Saira:ital,wght@0,100..900;1,100..900&display=swap');
 @import "/node_modules/bootstrap/scss/bootstrap";
 
-/* --- STRUTTURA BASE --- */
+:root {
+  /* TECH PALETTE - LIGHT MODE (Default) */
+  --tech-bg-dark: #f0f9ff;
+  /* Light AliceBlue background */
+  --tech-bg-glass: rgba(255, 255, 255, 0.6);
+  --tech-border: rgba(56, 189, 248, 0.4);
+  --tech-border-glow: rgba(56, 189, 248, 0.8);
+  --tech-cyan: #0ea5e9;
+  /* Slightly darker cyan for visibility on white */
+  --tech-purple: #9333ea;
+  --tech-text-main: #0f172a;
+  /* Dark text */
+  --tech-text-muted: #475569;
+  --tech-shadow: 0 4px 20px rgba(56, 189, 248, 0.15);
+  --tech-shadow-hover: 0 8px 30px rgba(56, 189, 248, 0.3);
+}
 
+body.dark-theme {
+  /* TECH PALETTE - DARK MODE */
+  --tech-bg-dark: #020617;
+  --tech-bg-glass: rgba(15, 23, 42, 0.7);
+  --tech-border: rgba(56, 189, 248, 0.3);
+  --tech-border-glow: rgba(56, 189, 248, 0.6);
+  --tech-cyan: #38bdf8;
+  /* Bright cyan for dark mode */
+  --tech-purple: #a855f7;
+  --tech-text-main: #f1f5f9;
+  /* Light text */
+  --tech-text-muted: #94a3b8;
+  --tech-shadow: 0 0 15px rgba(56, 189, 248, 0.25);
+  --tech-shadow-hover: 0 0 25px rgba(56, 189, 248, 0.5);
+}
 
-
-html, body {
+html,
+body {
   margin: 0;
   padding: 0;
-  background-color: #ffffff; /* sfondo globale bianco */
-  overflow-x: hidden; /* previene scrollbar orizzontale */
+  background-color: transparent;
+  /* Canvas handles BG */
+  color: var(--tech-text-main);
+  font-family: 'Saira', sans-serif;
+  overflow-x: hidden;
 }
 
 .bg {
   position: relative;
   min-height: 100vh;
-  background-color: #ffffff;
+  background-color: transparent;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -44,7 +77,8 @@ html, body {
 
 .app-footer {
   margin-top: 0;
-  background-color: #e4f3ff; /* colore corretto del footer */
+  background-color: transparent;
+  /* Will be styled in footer.scss */
 }
 
 /* --- IMMAGINE DECORATIVA --- */
@@ -62,12 +96,9 @@ html, body {
     left: -100px;
     top: 20%;
   }
+
   100% {
     left: 90%;
     top: 80%;
   }
 }
-
-
-  
-  

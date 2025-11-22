@@ -5,7 +5,7 @@ import TechBubbles from '../components/TechBubbles.vue';
 export default {
   name: 'home',
   components: {
-    TechBubbles, // 👈 REGISTRA IL COMPONENTE QUI
+    TechBubbles,
   },
   data() {
     return {
@@ -187,16 +187,16 @@ export default {
 
 
 <template>
-  <div class="bg-white">
+  <div class="bg-transparent">
 
     <!-- HERO -->
-    <section class="home-section">
+    <section class="home-section" style="background: transparent;">
       <h1 class="home_text">
         HI I'M FABIO <br />
         {{ animatedText }} <br />
         AND THIS IS MY PORTFOLIO
       </h1>
-      <img src="../../public/img/home.png" class="img-home" alt="Portfolio hero" />
+      <img src="/img/hero_tech.png" class="img-home" alt="Portfolio hero" />
     </section>
 
 
