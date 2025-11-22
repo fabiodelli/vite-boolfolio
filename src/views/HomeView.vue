@@ -34,9 +34,10 @@ export default {
 
       // timeline
       timeline: [
-        { when: '2024', title: 'Formazione Full-Stack', note: 'HTML/CSS/JS, Vue, PHP' },
-        { when: '2025', title: 'Stage Front-End', note: 'Componenti riutilizzabili' },
-        { when: 'Oggi', title: 'Progetti personali', note: 'UI/UX, performance' },
+        { when: '2019', title: 'Percorso Formativo', note: 'Soft skills, mindset, comunicazione' },
+        { when: '2022', title: 'Boolean Careers', note: 'Full Stack Web Development (700+ ore)' },
+        { when: '2024', title: 'Freelance', note: 'Ecommerce Manager & Junior Developer' },
+        { when: '2025', title: 'Progetti Personali', note: 'Portfolio, sperimentazione, crescita' },
       ],
     };
   },
