@@ -1,11 +1,13 @@
 <script>
 import axios from 'axios';
 import TechBubbles from '../components/TechBubbles.vue';
+import AppCta from '../components/AppCta.vue';
 
 export default {
   name: 'home',
   components: {
     TechBubbles,
+    AppCta,
   },
   data() {
     return {
@@ -23,6 +25,7 @@ export default {
       // stato
       loading: { projects: true },
       error: { projects: null },
+      isMobile: false,
 
       // dati
       projects: [],     // array vero -> results.data
@@ -44,9 +47,15 @@ export default {
   },
 
   mounted() {
+    this.checkMobile();
+    window.addEventListener('resize', this.checkMobile);
     this.fetchProjects().then(() => {
       console.log('[Home] techItems caricati:', this.techItems);
     });
+  },
+
+  beforeUnmount() {
+    window.removeEventListener('resize', this.checkMobile);
   },
 
   computed: {
@@ -181,6 +190,10 @@ export default {
         ? p.technologies.map(t => t?.name).filter(Boolean)
         : [];
     },
+
+    checkMobile() {
+      this.isMobile = window.innerWidth < 768;
+    },
   },
 };
 </script>
@@ -192,9 +205,9 @@ export default {
     <!-- HERO -->
     <section class="home-section" style="background: transparent;">
       <h1 class="home_text">
-        HI I'M FABIO <br />
+        {{ $t('home.hero_title') }} <br />
         {{ animatedText }} <br />
-        AND THIS IS MY PORTFOLIO
+        {{ $t('home.hero_subtitle') }}
       </h1>
       <img src="/img/hero_tech.png" class="img-home" alt="Portfolio hero" />
     </section>
@@ -203,12 +216,12 @@ export default {
     <!-- FEATURED PROJECTS (reali, con cover) -->
     <section class="featured-wrap container-xxl">
       <div class="d-flex justify-content-between align-items-center mb-3">
-        <h3 class="section-title m-0">Progetti in evidenza</h3>
-        <button class="btn-ghost" @click="goProjects">Vedi tutti</button>
+        <h3 class="section-title m-0">{{ $t('home.featured_title') }}</h3>
+        <button class="btn-ghost" @click="goProjects">{{ $t('home.view_all') }}</button>
       </div>
 
-      <div v-if="loading.projects" class="text-muted">Caricamento progetti…</div>
-      <div v-else-if="!featured.length" class="text-muted">Nessun progetto in evidenza.</div>
+      <div v-if="loading.projects" class="text-muted">{{ $t('home.loading_projects') }}</div>
+      <div v-else-if="!featured.length" class="text-muted">{{ $t('home.no_featured') }}</div>
       <div v-else class="row g-4">
         <div v-for="(p, i) in featured" :key="i" class="col-12 col-md-4">
           <article class="card-like h-100 d-flex flex-column overflow-hidden featured-card" @click="goProjects">
@@ -235,19 +248,24 @@ export default {
 
     <!-- TECH STACK (reale, in stile “crypto bubble”) -->
     <section class="stack-wrap container-xxl">
-      <h3 class="section-title">Tecnologie</h3>
+      <h3 class="section-title">{{ $t('home.tech_title') }}</h3>
 
-      <div v-if="loading.projects" class="text-muted">Caricamento tecnologie…</div>
-      <div v-else-if="!techItems.length" class="text-muted">Nessuna tecnologia disponibile.</div>
+      <div v-if="loading.projects" class="text-muted">{{ $t('home.loading_tech') }}</div>
+      <div v-else-if="!techItems.length" class="text-muted">{{ $t('home.no_tech') }}</div>
       <div v-else>
-        <TechBubbles :items="techItems" :height="360" :minSize="70" :maxSize="110" />
+        <TechBubbles 
+          :items="techItems" 
+          :height="360" 
+          :minSize="isMobile ? 40 : 70" 
+          :maxSize="isMobile ? 70 : 110" 
+        />
       </div>
     </section>
 
 
     <!-- TIMELINE -->
     <section class="timeline-wrap container-xxl">
-      <h3 class="section-title">Percorso</h3>
+      <h3 class="section-title">{{ $t('home.timeline_title') }}</h3>
       <ul class="timeline">
         <li v-for="(t, i) in timeline" :key="i">
           <div class="dot"></div>
@@ -261,15 +279,7 @@ export default {
     </section>
 
     <!-- CTA -->
-    <section class="cta-wrap container-xxl text-center">
-      <div class="card-like p-4">
-        <h4 class="mb-3">Ti interessa il mio profilo?</h4>
-        <div class="d-flex flex-wrap gap-3 justify-content-center">
-          <button class="btn-solid" @click="dlCV">Scarica CV</button>
-          <button class="btn-ghost" @click="goContacts">Contattami</button>
-        </div>
-      </div>
-    </section>
+    <AppCta />
 
   </div>
 </template>

@@ -22,18 +22,18 @@ export default {
   },
   computed: {
     bgColor() {
-      return this.darkMode ? "#020617" : "#ffffff";
+      // Light: --tech-bg-dark (#f0f9ff), Dark: --tech-bg-dark (#020617)
+      return this.darkMode ? "#020617" : "#f0f9ff";
     },
     particleColor() {
-      return this.darkMode ? "#ffffff" : "#000000";
+      // Light: Cyan/Blue (#0ea5e9) for visibility, Dark: White (#ffffff) or Cyan (#38bdf8)
+      // User asked for "azzurrino", let's try Cyan in Dark Mode too for a more "Tech" feel, 
+      // or keep White for contrast. Let's stick to White for Dark Mode as it's star-like.
+      // For Light Mode, use a darker Cyan/Blue for contrast against white.
+      return this.darkMode ? "#ffffff" : "#0ea5e9";
     },
   },
-  watch: {
-    darkMode() {
-      // Redraw immediately when mode changes
-      this.animate();
-    }
-  },
+
   mounted() {
     this.canvas = this.$refs.canvas;
     this.ctx = this.canvas.getContext("2d");
@@ -41,12 +41,10 @@ export default {
     this.initParticles();
     this.animate();
 
-    window.addEventListener("mousemove", this.handleMouseMove);
     window.addEventListener("resize", this.resizeCanvas);
   },
   beforeUnmount() {
     cancelAnimationFrame(this.animationFrameId);
-    window.removeEventListener("mousemove", this.handleMouseMove);
     window.removeEventListener("resize", this.resizeCanvas);
   },
   methods: {
@@ -56,10 +54,6 @@ export default {
         this.canvas.height = window.innerHeight;
         this.initParticles();
       }
-    },
-    handleMouseMove(e) {
-      this.mouse.x = e.clientX;
-      this.mouse.y = e.clientY;
     },
     initParticles() {
       this.particles = [];
@@ -97,21 +91,6 @@ export default {
         if (p.y < 0 || p.y > this.canvas.height) {
             p.vy *= -1;
             p.baseVy *= -1; // Reflect base velocity too
-        }
-
-        let dx = this.mouse.x - p.x;
-        let dy = this.mouse.y - p.y;
-        let distance = Math.sqrt(dx * dx + dy * dy);
-        if (distance < 150) {
-            const forceDirectionX = dx / distance;
-            const forceDirectionY = dy / distance;
-            const force = (150 - distance) / 150;
-            const directionX = forceDirectionX * force * 0.6;
-            const directionY = forceDirectionY * force * 0.6;
-            
-            // Push away from mouse
-            p.vx -= directionX; 
-            p.vy -= directionY;
         }
 
         this.ctx.beginPath();

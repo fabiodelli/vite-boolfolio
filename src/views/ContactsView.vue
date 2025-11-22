@@ -11,11 +11,7 @@ export default {
 
       <!-- LEFT: TITOLONE -->
       <div class="col-12 col-lg-5 mb-5 mb-lg-0 text-center text-lg-start">
-        <h1 class="contact-title page-title">
-          Facciamo<br />
-          <span class="outlined">qualcosa</span><br />
-          insieme!
-        </h1>
+        <h1 class="contact-title page-title" v-html="$t('contacts.hero_title')"></h1>
       </div>
 
       <!-- RIGHT: CARD CONTATTI -->
@@ -26,21 +22,21 @@ export default {
                alt="Avatar"
                class="contact-avatar mb-3" />
 
-          <h3 class="section-title mb-3">Entra in contatto</h3>
+          <h3 class="section-title mb-3">{{ $t('contacts.subtitle') }}</h3>
 
           <p class="contact-subtitle mb-4">
-            Sentiti liberə di scrivermi qui 👇
+            {{ $t('contacts.text') }}
           </p>
 
           <!-- EMAIL BOX -->
           <div class="email-box mb-4">
             <a href="mailto:tuamail@example.com" class="email-link">
               <i class="fa-solid fa-envelope me-2"></i>
-              tuamail@example.com
+              {{ $t('contacts.email_me') }}
             </a>
           </div>
 
-          <p class="fw-semibold mb-2">Guarda anche i miei social</p>
+          <p class="fw-semibold mb-2">{{ $t('contacts.socials') }}</p>
 
           <div class="social-links d-flex justify-content-center gap-3 mt-3">
             <a class="social-pill" href="#" target="_blank"><i class="fa-brands fa-linkedin"></i></a>

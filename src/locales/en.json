@@ -1,0 +1,54 @@
+{
+    "header": {
+        "home": "Home",
+        "projects": "Projects",
+        "contacts": "Contacts"
+    },
+    "home": {
+        "hero_title": "HI I'M FABIO",
+        "hero_subtitle": "AND THIS IS MY PORTFOLIO",
+        "featured_title": "Featured Projects",
+        "view_all": "View All",
+        "loading_projects": "Loading projects…",
+        "no_featured": "No featured projects.",
+        "tech_title": "Technologies I use",
+        "loading_tech": "Loading technologies…",
+        "no_tech": "No technologies available.",
+        "timeline_title": "Journey",
+        "cta_title": "SEEN SOMETHING INTERESTING?",
+        "download_cv": "Download CV",
+        "contact_me": "Contact Me"
+    },
+    "projects": {
+        "title": "PROJECTS",
+        "all_types": "All Types",
+        "all_techs": "All Technologies",
+        "reset": "Reset",
+        "loading": "Loading projects…",
+        "error": "Error loading projects",
+        "no_results": "No projects match the selected filters.",
+        "view_details": "View details",
+        "type_label": "Type",
+        "tech_label": "Technologies"
+    },
+    "single_project": {
+        "back": "Back to Projects",
+        "loading": "Loading project…",
+        "error": "Error loading project",
+        "no_data": "No data available for this project.",
+        "type_label": "Type",
+        "tech_label": "Technologies",
+        "github": "View on GitHub"
+    },
+    "contacts": {
+        "title": "CONTACTS",
+        "hero_title": "Let's build<br /> <span class=\"outlined\">something</span><br /> together!",
+        "subtitle": "Get in touch",
+        "text": "Feel free to write me here 👇",
+        "email_me": "Email Me",
+        "socials": "Check out my socials"
+    },
+    "footer": {
+        "rights": "All rights reserved."
+    }
+}

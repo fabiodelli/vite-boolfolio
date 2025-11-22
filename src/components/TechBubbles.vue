@@ -26,7 +26,9 @@ export default {
     items: {
       immediate: true,
       handler() { this.$nextTick(() => { this.stop(); this.setup(); this.start(); }); }
-    }
+    },
+    minSize() { this.restart(); },
+    maxSize() { this.restart(); },
   },
   mounted() {
     this.measure();
@@ -39,6 +41,11 @@ export default {
     this.stop();
   },
   methods: {
+    restart() {
+      this.stop();
+      this.setup();
+      this.start();
+    },
     /* --------- utils --------- */
     measure() {
       const el = this.$refs.box;
@@ -145,21 +152,23 @@ export default {
     },
 
     /* --------- fisica con rimbalzi --------- */
+    /* --------- fisica con rimbalzi --------- */
     updatePhysics(dt) {
       const W = this.boxW, H = this.boxH;
+      const margin = 15; // Buffer per rimbalzare prima di toccare
 
-      // muovi + pareti (rispettano i bordi veri del box)
+      // muovi + pareti (rispettano i bordi veri del box + margin)
       for (const b of this.bubbles) {
         b.x += b.vx * dt;
         b.y += b.vy * dt;
 
-        if (b.x <= 0) { b.x = 0; b.vx = Math.abs(b.vx); }
-        if (b.x + b.size >= W) { b.x = W - b.size; b.vx = -Math.abs(b.vx); }
-        if (b.y <= 0) { b.y = 0; b.vy = Math.abs(b.vy); }
-        if (b.y + b.size >= H) { b.y = H - b.size; b.vy = -Math.abs(b.vy); }
+        if (b.x <= margin) { b.x = margin; b.vx = Math.abs(b.vx); }
+        if (b.x + b.size >= W - margin) { b.x = W - b.size - margin; b.vx = -Math.abs(b.vx); }
+        if (b.y <= margin) { b.y = margin; b.vy = Math.abs(b.vy); }
+        if (b.y + b.size >= H - margin) { b.y = H - b.size - margin; b.vy = -Math.abs(b.vy); }
       }
 
-      // collisioni tra bolle (elastico semplificato)
+      // collisioni tra bolle (elastico semplificato + margin)
       const n = this.bubbles.length;
       for (let i = 0; i < n; i++) {
         for (let j = i + 1; j < n; j++) {
@@ -168,7 +177,9 @@ export default {
           const cx = c.x + c.size / 2, cy = c.y + c.size / 2;
           let dx = cx - ax, dy = cy - ay;
           let dist = Math.hypot(dx, dy);
-          const minDist = (a.size + c.size) / 2;
+          
+          // Distanza minima = raggioA + raggioC + margin
+          const minDist = (a.size + c.size) / 2 + margin;
 
           if (dist > 0 && dist < minDist) {
             const nx = dx / dist, ny = dy / dist;
@@ -232,34 +243,72 @@ export default {
   position: relative;
   width: 100%;
   overflow: hidden;
-  background-color: #eaf5ff !important; /* stile coerente con il portfolio */
+  background-color: var(--tech-bg-glass) !important;
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid var(--tech-border);
+  border-radius: 25px; /* Matches .card-like */
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
   /* niente padding, altrimenti i bordi logici non coincidono con quelli visivi */
   padding: 0;
-  /* .card-like del tuo tema aggiunge border/radius/shadow */
   contain: layout paint;
+  transition: all 0.3s ease;
 }
-
 
 .bubble {
   position: absolute;
   display: grid;
   place-items: center;
   border-radius: 50%;
-  border: 3px solid #000;
-  background: #fff;
-  box-shadow: 3px 3px 6px rgba(0,0,0,0.4);
+  border: 1px solid var(--tech-border);
+  background: rgba(255, 255, 255, 0.1); /* Semi-transparent bubble */
+  backdrop-filter: blur(4px);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  color: var(--tech-text-main);
   user-select: none;
   will-change: transform;
   backface-visibility: hidden;
   transform: translate3d(0,0,0);
   z-index: 1;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease, transform 0.3s ease;
 }
 
-.bubble:hover { z-index: 3; transform: translate3d(0,0,0) scale(1.05); }
-.bubble img { max-width: 70%; max-height: 70%; object-fit: contain; display: block; z-index: 2; }
-.bubble i, .bubble .fallback { z-index: 2; }
-.bubble i { font-size: clamp(18px, 3.0vw, 34px); }
-.bubble .fallback { font-weight: 800; font-size: 1.1rem; }
+.bubble:hover {
+  z-index: 3;
+  transform: translate3d(0,0,0) scale(1.1);
+  border-color: var(--tech-cyan);
+  box-shadow: 0 0 15px rgba(56, 189, 248, 0.4);
+  background: rgba(56, 189, 248, 0.1);
+}
+
+.bubble img {
+  max-width: 70%;
+  max-height: 70%;
+  object-fit: contain;
+  display: block;
+  z-index: 2;
+  filter: drop-shadow(0 2px 4px rgba(0,0,0,0.1));
+}
+
+.bubble i, .bubble .fallback {
+  z-index: 2;
+  color: var(--tech-text-main);
+}
+
+.bubble i {
+  font-size: clamp(18px, 3.0vw, 34px);
+  transition: color 0.3s ease;
+}
+
+.bubble:hover i {
+  color: var(--tech-cyan);
+  text-shadow: 0 0 8px rgba(56, 189, 248, 0.6);
+}
+
+.bubble .fallback {
+  font-weight: 800;
+  font-size: 1.1rem;
+}
 
 @media (max-width: 768px) {
   .bubble-box { height: 420px !important; }

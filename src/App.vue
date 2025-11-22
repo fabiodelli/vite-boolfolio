@@ -2,12 +2,14 @@
 import AppHeader from './components/AppHeader.vue';
 import AppFooter from './components/AppFooter.vue';
 import ParticleBackground from './components/ParticleBackground.vue';
+import AppScrollToTop from './components/AppScrollToTop.vue';
 
 export default {
   components: {
     AppHeader,
     AppFooter,
     ParticleBackground,
+    AppScrollToTop,
   },
   data() {
     return {
@@ -55,6 +57,9 @@ export default {
 
     <!-- FOOTER -->
     <app-footer class="app-footer" />
+
+    <!-- SCROLL TO TOP -->
+    <AppScrollToTop />
   </div>
 </template>
 

@@ -1,8 +1,12 @@
 <script>
 import axios from "axios";
+import AppCta from "../components/AppCta.vue";
 
 export default {
   name: "ProjectsView",
+  components: {
+    AppCta,
+  },
   data() {
     return {
       base_url: "http://127.0.0.1:8000/",
@@ -138,14 +142,14 @@ export default {
 
       <!-- TITOLO + FILTRI -->
       <div class="text-center mb-4">
-        <h1 class="page-title">PROJECTS</h1>
+        <h1 class="page-title">{{ $t('projects.title') }}</h1>
 
         <!-- FILTRI COMPATTI (Dropdown) -->
         <div class="d-flex justify-content-center align-items-center flex-wrap gap-3 mb-4">
           
           <!-- Filter by Type -->
           <select v-model="selectedType" class="filter-select">
-            <option :value="null">All Types</option>
+            <option :value="null">{{ $t('projects.all_types') }}</option>
             <option v-for="type in types" :key="type" :value="type">
               {{ type }}
             </option>
@@ -153,7 +157,7 @@ export default {
 
           <!-- Filter by Technology -->
           <select v-model="selectedTechnology" class="filter-select">
-            <option :value="null">All Technologies</option>
+            <option :value="null">{{ $t('projects.all_techs') }}</option>
             <option v-for="tech in technologies" :key="tech" :value="tech">
               {{ tech }}
             </option>
@@ -161,7 +165,7 @@ export default {
 
           <!-- Reset Button -->
           <button @click="resetFilters()" class="btn-ghost" style="min-width: auto; padding: 0.5rem 1rem;">
-            Reset
+            {{ $t('projects.reset') }}
           </button>
 
         </div>
@@ -169,7 +173,7 @@ export default {
 
       <!-- LOADING / ERROR -->
       <div v-if="loading" class="text-muted text-center">
-        Caricamento progetti…
+        {{ $t('projects.loading') }}
       </div>
 
       <div v-else-if="error" class="alert alert-danger">
@@ -215,7 +219,7 @@ export default {
 
                   <div class="mb-3">
                     <!-- TYPE -->
-                    <span class="label d-block mb-1">Type</span>
+                    <span class="label d-block mb-1">{{ $t('projects.type_label') }}</span>
                     <span class="type-pill">
                       {{ project.type ? project.type.type : 'N/A' }}
                     </span>
@@ -223,7 +227,7 @@ export default {
 
                   <!-- TECHNOLOGIES -->
                   <div class="mb-3">
-                    <span class="label d-block mb-1">Technologies</span>
+                    <span class="label d-block mb-1">{{ $t('projects.tech_label') }}</span>
                     <div
                       v-if="project.technologies && project.technologies.length"
                       class="d-flex flex-wrap gap-2 mt-1"
@@ -249,7 +253,7 @@ export default {
                   <!-- CTA -->
                   <div class="mt-auto">
                     <span class="btn-ghost small-cta">
-                      View details
+                      {{ $t('projects.view_details') }}
                     </span>
                   </div>
                 </div>
@@ -260,11 +264,14 @@ export default {
 
         <!-- Nessun progetto dopo filtri -->
         <div v-if="filteredProjects.length === 0" class="p-3 text-center">
-          <p>Nessun progetto corrisponde ai filtri selezionati.</p>
+          <p>{{ $t('projects.no_results') }}</p>
         </div>
       </div>
+      </div>
+      
+      <!-- CTA -->
+      <AppCta />
     </div>
-  </div>
 </template>
 
 

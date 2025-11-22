@@ -1,8 +1,12 @@
 <script>
 import axios from 'axios';
+import AppCta from '../components/AppCta.vue';
 
 export default {
   name: 'SingleProjectView',
+  components: {
+    AppCta,
+  },
   data() {
     return {
       project: null,
@@ -52,16 +56,17 @@ export default {
           {{ project && project.title ? project.title : 'N/A' }}
         </h1>
 
-        <button class="btn-ghost" @click="goBack">
-          ← Torna ai progetti
-        </button>
+        <router-link :to="{ name: 'projects' }" class="btn-ghost">
+          &larr; {{ $t('single_project.back') }}
+        </router-link>
       </div>
 
-      <!-- LOADING / ERROR -->
-      <div v-if="loading" class="text-muted">
-        Caricamento progetto…
+      <!-- LOADING -->
+      <div v-if="loading" class="text-muted text-center">
+        {{ $t('single_project.loading') }}
       </div>
 
+      <!-- ERROR -->
       <div v-else-if="error" class="alert alert-danger">
         {{ error }}
       </div>
@@ -91,14 +96,14 @@ export default {
             <!-- TYPE + TECHNOLOGIES -->
             <div class="d-flex flex-column gap-2">
               <div>
-                <span class="label">Type</span>
+                <span class="label">{{ $t('single_project.type_label') }}</span>
                 <span class="type-pill">
                   {{ project.type ? project.type.type : 'N/A' }}
                 </span>
               </div>
 
               <div>
-                <span class="label">Technologies</span>
+                <span class="label">{{ $t('single_project.tech_label') }}</span>
                 <div v-if="project.technologies && project.technologies.length" class="d-flex flex-wrap gap-2 mt-1">
                   <span
                     v-for="technology in project.technologies"
@@ -136,7 +141,7 @@ export default {
                 target="_blank"
                 rel="noopener noreferrer"
               >
-                Vai al repository
+                {{ $t('single_project.github') }}
               </a>
               <span v-else class="text-muted">Non disponibile</span>
             </div>
@@ -147,8 +152,11 @@ export default {
 
       <!-- Se per qualche motivo project è null senza error (edge case) -->
       <div v-else class="text-muted">
-        Nessun dato disponibile per questo progetto.
+        {{ $t('single_project.no_data') }}
       </div>
+
+      <!-- CTA -->
+      <AppCta />
 
     </div>
   </div>
@@ -159,18 +167,22 @@ export default {
   font-weight: 800;
   text-transform: uppercase;
   margin-bottom: 1rem;
+  color: var(--tech-text-main);
+  text-shadow: 0 0 20px rgba(56, 189, 248, 0.4);
 }
 
-/* card singolo progetto: stesso stile generale del sito */
+/* card singolo progetto: Tech Style */
 .project-card {
-  background: #eaf5ff;
-  border: 3px solid #000;
+  background: var(--tech-bg-glass);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid var(--tech-border);
   border-radius: 25px;
-  box-shadow: 3px 3px 6px rgba(0, 0, 0, 0.4);
+  box-shadow: var(--tech-shadow);
+  color: var(--tech-text-main);
 }
 
 /* wrapper immagine grande */
-
 .project-image-wrap {
   width: 100%;
   overflow: hidden;
@@ -181,25 +193,26 @@ export default {
   width: 100%;
   height: auto;
   display: block;
-
   border-radius: 25px;
-  border: 3px solid black;
-  box-shadow: 3px 3px 6px rgba(0, 0, 0, 0.4);
+  border: 1px solid var(--tech-border);
+  box-shadow: var(--tech-shadow);
   object-fit: cover;
 }
-
 
 /* placeholder se manca l’immagine */
 .project-image.placeholder {
   min-height: 220px;
+  background: rgba(255, 255, 255, 0.05);
+  color: var(--tech-text-muted);
 }
 
-/* label piccole (Type, Technologies, Description, Github) */
+/* label piccole */
 .label {
   font-size: 0.75rem;
   text-transform: uppercase;
   letter-spacing: 0.06em;
   font-weight: 700;
+  color: var(--tech-text-muted);
 }
 
 /* pill del type */
@@ -208,11 +221,12 @@ export default {
   margin-left: 0.4rem;
   padding: 0.2rem 0.8rem;
   border-radius: 999px;
-  border: 2px solid #000;
-  background: #000;
-  color: #fff;
+  border: 1px solid var(--tech-cyan);
+  background: rgba(56, 189, 248, 0.1);
+  color: var(--tech-cyan);
   font-size: 0.85rem;
   text-transform: uppercase;
+  box-shadow: 0 0 10px rgba(56, 189, 248, 0.2);
 }
 
 /* pill per tech con logo */
@@ -222,54 +236,64 @@ export default {
   justify-content: center;
   padding: 0.2rem 0.6rem;
   border-radius: 999px;
-  border: 2px solid #000;
-  background: #fff;
+  border: 1px solid var(--tech-purple);
+  background: rgba(168, 85, 247, 0.1);
   min-height: 32px;
+  color: var(--tech-purple);
+  box-shadow: 0 0 10px rgba(168, 85, 247, 0.2);
 }
 
 /* testo descrizione */
 .project-content {
   word-wrap: break-word;
   max-width: 100%;
+  color: var(--tech-text-main);
+  line-height: 1.6;
 }
 
-/* bottone ghost (torna ai progetti) in stile portfolio */
+/* bottone ghost (torna ai progetti) */
 .btn-ghost {
-  background: #fff;
-  border: 3px solid #000;
+  background: transparent;
+  border: 1px solid var(--tech-text-main);
+  color: var(--tech-text-main);
   border-radius: 25px;
   padding: 0.35rem 0.9rem;
-  box-shadow: 3px 3px 6px rgba(0, 0, 0, 0.3);
+  box-shadow: none;
   text-transform: uppercase;
   font-size: 0.8rem;
   display: inline-block;
-  transition: all 0.18s ease;
+  transition: all 0.3s ease;
 }
 
 .btn-ghost:hover {
-  transform: scale(1.05);
-  background: #000;
-  color: #fff;
+  transform: translateY(-2px);
+  background: var(--tech-cyan);
+  border-color: var(--tech-cyan);
+  color: #000;
+  box-shadow: 0 0 15px rgba(56, 189, 248, 0.6);
 }
 
 /* bottone solido (Github) */
 .btn-solid {
   display: inline-block;
-  background: #000;
+  background: var(--tech-cyan);
   color: #fff;
-  border: 3px solid #000;
+  border: 1px solid var(--tech-cyan);
   border-radius: 25px;
   padding: 0.35rem 0.9rem;
-  box-shadow: 3px 3px 6px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 0 10px rgba(56, 189, 248, 0.3);
   text-transform: uppercase;
   font-size: 0.8rem;
   text-decoration: none;
-  transition: transform 0.18s ease;
+  transition: all 0.3s ease;
+  font-weight: 600;
 }
 
 .btn-solid:hover {
-  transform: scale(1.05);
-  color: #fff;
+  transform: translateY(-2px);
+  box-shadow: 0 0 20px rgba(56, 189, 248, 0.6);
+  background: #fff;
+  color: var(--tech-cyan);
 }
 
 /* responsive */

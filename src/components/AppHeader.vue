@@ -1,6 +1,11 @@
 <script>
+import AppLogo from './AppLogo.vue';
+
 export default {
   name: "AppHeader",
+  components: {
+    AppLogo,
+  },
 
   props: {
     darkMode: {
@@ -35,8 +40,9 @@ export default {
       <!-- LINK DESKTOP -->
 
       <!-- BRAND opzionale (desktop) -->
-      <div class="brand d-none d-md-block">
-        FABIO
+      <!-- BRAND (Logo FD) -->
+      <div class="brand">
+        <AppLogo />
       </div>
       
       <div class="nav-links d-none d-md-flex">
@@ -45,7 +51,7 @@ export default {
           :to="{ name: 'home' }"
           exact-active-class="active_link"
         >
-          Home
+          {{ $t('header.home') }}
         </router-link>
 
         <router-link
@@ -53,7 +59,7 @@ export default {
           :to="{ name: 'projects' }"
           exact-active-class="active_link"
         >
-          Projects
+          {{ $t('header.projects') }}
         </router-link>
 
         <router-link
@@ -61,12 +67,21 @@ export default {
           :to="{ name: 'contacts' }"
           exact-active-class="active_link"
         >
-          Contacts
+          {{ $t('header.contacts') }}
         </router-link>
       </div>
 
-      <!-- AZIONI: TEMA + BURGER -->
+      <!-- AZIONI: TEMA + LANG + BURGER -->
       <div class="nav-actions">
+        
+        <!-- LANGUAGE SWITCHER -->
+        <button 
+          class="lang-btn filter_button" 
+          @click="$i18n.locale = $i18n.locale === 'it' ? 'en' : 'it'"
+        >
+          {{ $i18n.locale === 'it' ? 'IT' : 'EN' }}
+        </button>
+
         <!-- TOGGLE TEMA -->
         <button
           type="button"
@@ -103,7 +118,7 @@ export default {
           exact-active-class="active_link"
           @click="closeMenu"
         >
-          Home
+          {{ $t('header.home') }}
         </router-link>
 
         <router-link
@@ -112,7 +127,7 @@ export default {
           exact-active-class="active_link"
           @click="closeMenu"
         >
-          Projects
+          {{ $t('header.projects') }}
         </router-link>
 
         <router-link
@@ -121,7 +136,7 @@ export default {
           exact-active-class="active_link"
           @click="closeMenu"
         >
-          Contacts
+          {{ $t('header.contacts') }}
         </router-link>
       </div>
     </transition>
