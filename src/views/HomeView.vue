@@ -50,7 +50,7 @@ export default {
     this.checkMobile();
     window.addEventListener('resize', this.checkMobile);
     this.fetchProjects().then(() => {
-      console.log('[Home] techItems caricati:', this.techItems);
+      // loaded
     });
   },
 
@@ -140,7 +140,7 @@ export default {
             const name = String(rawName).trim();
 
             const rawImg = t.image || t.logo || t.icon_path || t.icon || null;
-            const imageUrl = rawImg ? this.getImageFromPath(rawImg) : null;
+            const imageUrl = rawImg ? this.base_url + 'storage/' + rawImg : null;
 
             if (!map.has(name)) {
               map.set(name, {
@@ -183,8 +183,18 @@ export default {
     goContacts() { this.$router.push({ name: 'contacts' }); },
     dlCV() { window.open('/cv.pdf', '_blank'); },
 
-    projectTitle(p) { return p.title || p.name || 'Progetto'; },
-    projectDesc(p) { return p.description || p.summary || ''; },
+    projectTitle(p) {
+      if (this.$i18n.locale === 'en' && p.title_en) {
+        return p.title_en;
+      }
+      return p.title || p.name || 'Progetto';
+    },
+    projectDesc(p) {
+      if (this.$i18n.locale === 'en' && p.content_en) {
+        return p.content_en;
+      }
+      return p.description || p.summary || '';
+    },
     projectTags(p) {
       return Array.isArray(p.technologies)
         ? p.technologies.map(t => t?.name).filter(Boolean)

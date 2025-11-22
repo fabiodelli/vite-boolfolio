@@ -36,7 +36,6 @@ export default {
         }
       })
       .catch((err) => {
-        console.log(err);
         this.error = 'Errore nel caricamento del progetto';
       })
       .finally(() => {
@@ -53,7 +52,7 @@ export default {
       <!-- HEADER / TITLE + BACK -->
       <div class="d-flex justify-content-between align-items-center mb-4 flex-wrap gap-2">
         <h1 class="page-title mb-0">
-          {{ project && project.title ? project.title : 'N/A' }}
+          {{ project ? (($i18n.locale === 'en' && project.title_en) ? project.title_en : (project.title || 'N/A')) : 'N/A' }}
         </h1>
 
         <router-link :to="{ name: 'projects' }" class="btn-ghost">
@@ -111,8 +110,8 @@ export default {
                     class="tech-logo-pill"
                   >
                     <img
-                      v-if="technology.logo"
-                      :src="technology.logo"
+                      v-if="technology.image"
+                      :src="base_url + 'storage/' + technology.image"
                       :alt="technology.name"
                       height="26"
                     />
@@ -127,7 +126,7 @@ export default {
             <div>
               <span class="label">Descrizione</span>
               <p class="project-content mt-1">
-                {{ project.content ? project.content : 'N/A' }}
+                {{ ($i18n.locale === 'en' && project.content_en) ? project.content_en : (project.content || 'N/A') }}
               </p>
             </div>
 

@@ -92,7 +92,6 @@ export default {
           this.technologies = [...new Set(techs.filter(Boolean))];
         })
         .catch((error) => {
-          console.log(error);
           this.error = error.message || "Errore nel caricamento dei progetti";
         })
         .finally(() => {
@@ -210,11 +209,11 @@ export default {
                 <!-- TESTO / META -->
                 <div class="col-md-5 d-flex flex-column p-3 p-md-4">
                   <h3 class="project-title">
-                    {{ project.title || 'N/A' }}
+                    {{ ($i18n.locale === 'en' && project.title_en) ? project.title_en : (project.title || 'N/A') }}
                   </h3>
 
                   <p class="project-excerpt mb-3">
-                    {{ truncateText(project.content) }}
+                    {{ truncateText(($i18n.locale === 'en' && project.content_en) ? project.content_en : project.content) }}
                   </p>
 
                   <div class="mb-3">
@@ -238,10 +237,10 @@ export default {
                         class="tech-logo-pill"
                       >
                         <img
-                          v-if="technology.logo"
+                          v-if="technology.image"
                           class="d-inline-block"
                           height="26"
-                          :src="technology.logo"
+                          :src="base_url + 'storage/' + technology.image"
                           :alt="technology.name"
                         />
                         <span v-else>{{ technology.name }}</span>

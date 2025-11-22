@@ -30,6 +30,12 @@
     background-color: rgba(56, 189, 248, 0.1);
     border-color: var(--tech-cyan);
   }
+
+  option {
+    background-color: #1e293b;
+    /* Dark background for options */
+    color: #f8fafc;
+  }
 }
 
 /* PROJECT CARD STYLES */
