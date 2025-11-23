@@ -25,6 +25,27 @@
         "all_techs": "All Technologies",
         "reset": "Reset",
         "loading": "Loading projects…",
+        "error": "Error loading projects",
+        "no_results": "No projects match the selected filters.",
+        "view_details": "View details",
+        "type_label": "Type",
+        "tech_label": "Technologies"
+    },
+    "single_project": {
+        "back": "Back to Projects",
+        "loading": "Loading project…",
+        "error": "Error loading project",
+        "no_data": "No data available for this project.",
+        "type_label": "Type",
+        "tech_label": "Technologies",
+        "description_label": "Description",
+        "github": "View on GitHub"
+    },
+    "contacts": {
+        "title": "CONTACTS",
+        "hero_title": "Let's build<br /> <span class=\"outlined\">something</span><br /> together!",
+        "subtitle": "Get in touch",
+        "text": "Feel free to write me here 👇",
         "email_me": "Email Me",
         "socials": "Check out my socials"
     },
