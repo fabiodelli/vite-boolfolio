@@ -36,6 +36,25 @@ body.dark-theme {
   /* Bright cyan for dark mode */
   --tech-purple: #a855f7;
   --tech-text-main: #f1f5f9;
+  /* Light text */
+  --tech-text-muted: #94a3b8;
+  --tech-shadow: 0 0 15px rgba(56, 189, 248, 0.25);
+  --tech-shadow-hover: 0 0 25px rgba(56, 189, 248, 0.5);
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0 1.5rem;
+  background-color: transparent;
+  /* Canvas handles BG */
+  color: var(--tech-text-main);
+  font-family: 'Saira', sans-serif;
+  overflow-x: hidden;
+}
+
+.bg {
+  position: relative;
   min-height: 100vh;
   background-color: transparent;
   display: flex;
