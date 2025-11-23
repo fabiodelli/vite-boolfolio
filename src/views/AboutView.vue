@@ -18,19 +18,6 @@ export default {
                     Oltre alla mia formazione tecnica, possiedo un diploma di scuola secondaria di secondo grado presso
                     l'Istituto Tecnico Agrario Busdraghi.
 
-                    Inoltre, ho partecipato a percorsi formativi focalizzati su mindset e crescita personale, comunicazione
-                    efficace, economia e finanza.
-                </strong>
-            </div>
-        </div>
-        <div class="col-6 d-flex justify-content-center align-items-center">
-            <img class="blu" src="../../public/img/blobblu.svg" alt="">
-            <img class="fabio " src="../../public/img/FabioDelli.png" alt="">
-        </div>
-    </div>
-</template>
-
-
 <style lang="scss">
 @use '../styles/general.scss';
 </style>
