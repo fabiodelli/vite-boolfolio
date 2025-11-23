@@ -111,7 +111,7 @@ export default {
                   >
                     <img
                       v-if="technology.image"
-                      :src="base_url + 'storage/' + technology.image"
+                      :src="technology.image.startsWith('http') ? technology.image : base_url + 'storage/' + technology.image"
                       :alt="technology.name"
                       height="26"
                     />

@@ -240,7 +240,7 @@ export default {
                           v-if="technology.image"
                           class="d-inline-block"
                           height="26"
-                          :src="base_url + 'storage/' + technology.image"
+                          :src="technology.image.startsWith('http') ? technology.image : base_url + 'storage/' + technology.image"
                           :alt="technology.name"
                         />
                         <span v-else>{{ technology.name }}</span>

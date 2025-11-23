@@ -141,7 +141,9 @@ export default {
             const name = String(rawName).trim();
 
             const rawImg = t.image || t.logo || t.icon_path || t.icon || null;
-            const imageUrl = rawImg ? this.base_url + 'storage/' + rawImg : null;
+            const imageUrl = rawImg 
+              ? (String(rawImg).startsWith('http') ? rawImg : this.base_url + 'storage/' + rawImg)
+              : null;
 
             if (!map.has(name)) {
               map.set(name, {
