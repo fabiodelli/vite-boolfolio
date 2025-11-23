@@ -45,7 +45,7 @@ body.dark-theme {
 html,
 body {
   margin: 0;
-  padding: 0 1.5rem;
+  padding: 0;
   background-color: transparent;
   /* Canvas handles BG */
   color: var(--tech-text-main);
@@ -62,23 +62,6 @@ body {
   justify-content: space-between;
 }
 
-.app-header {
-  position: sticky;
-  top: 0;
-  z-index: 1000;
-}
-
-.main-content {
-  flex-grow: 1;
-  position: relative;
-  z-index: 1;
-  overflow-x: hidden;
-}
-
-.app-footer {
-  margin-top: 0;
-  background-color: transparent;
-  /* Will be styled in footer.scss */
 }
 
 /* --- IMMAGINE DECORATIVA --- */
