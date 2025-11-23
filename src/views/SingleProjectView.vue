@@ -261,6 +261,7 @@ export default {
   text-transform: uppercase;
   font-size: 0.8rem;
   display: inline-block;
+  text-decoration: none;
   transition: all 0.3s ease;
 }
 
