@@ -12,7 +12,7 @@ export default {
       project: null,
       loading: true,
       error: null,
-      base_url: 'http://127.0.0.1:8000/',
+      base_url: import.meta.env.VITE_API_BASE_URL || 'http://127.0.0.1:8000',
     };
   },
   methods: {
