@@ -124,7 +124,7 @@ export default {
 
             <!-- CONTENT -->
             <div>
-              <span class="label">Descrizione</span>
+              <span class="label">{{ $t('single_project.description_label') }}</span>
               <p class="project-content mt-1">
                 {{ ($i18n.locale === 'en' && project.content_en) ? project.content_en : (project.content || 'N/A') }}
               </p>

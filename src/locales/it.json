@@ -38,6 +38,7 @@
         "no_data": "Nessun dato disponibile per questo progetto.",
         "type_label": "Tipologia",
         "tech_label": "Tecnologie",
+        "description_label": "Descrizione",
         "github": "Vedi su GitHub"
     },
     "contacts": {
