@@ -235,11 +235,11 @@ export default {
   justify-content: center;
   padding: 0.2rem 0.6rem;
   border-radius: 999px;
-  border: 1px solid var(--tech-purple);
-  background: rgba(168, 85, 247, 0.1);
+  border: 1px solid var(--tech-cyan);
+  background: rgba(56, 189, 248, 0.1);
   min-height: 32px;
-  color: var(--tech-purple);
-  box-shadow: 0 0 10px rgba(168, 85, 247, 0.2);
+  color: var(--tech-cyan);
+  box-shadow: 0 0 10px rgba(56, 189, 248, 0.2);
 }
 
 /* testo descrizione */
@@ -252,25 +252,26 @@ export default {
 
 /* bottone ghost (torna ai progetti) */
 .btn-ghost {
-  background: transparent;
-  border: 1px solid var(--tech-text-main);
-  color: var(--tech-text-main);
+  background: var(--tech-cyan);
+  border: 1px solid var(--tech-cyan);
+  color: #000;
   border-radius: 25px;
   padding: 0.35rem 0.9rem;
-  box-shadow: none;
+  box-shadow: 0 0 10px rgba(56, 189, 248, 0.3);
   text-transform: uppercase;
   font-size: 0.8rem;
   display: inline-block;
   text-decoration: none;
+  font-weight: 600;
   transition: all 0.3s ease;
 }
 
 .btn-ghost:hover {
   transform: translateY(-2px);
-  background: var(--tech-cyan);
+  background: #fff;
   border-color: var(--tech-cyan);
-  color: #000;
-  box-shadow: 0 0 15px rgba(56, 189, 248, 0.6);
+  color: var(--tech-cyan);
+  box-shadow: 0 0 20px rgba(56, 189, 248, 0.6);
 }
 
 /* bottone solido (Github) */

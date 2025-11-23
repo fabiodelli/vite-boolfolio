@@ -273,4 +273,28 @@ export default {
     </div>
 </template>
 
+<style lang="scss" scoped>
+/* bottone ghost (reset) */
+.btn-ghost {
+  background: var(--tech-cyan);
+  border: 1px solid var(--tech-cyan);
+  color: #000;
+  border-radius: 25px;
+  padding: 0.35rem 0.9rem;
+  box-shadow: 0 0 10px rgba(56, 189, 248, 0.3);
+  text-transform: uppercase;
+  font-size: 0.8rem;
+  display: inline-block;
+  text-decoration: none;
+  font-weight: 600;
+  transition: all 0.3s ease;
+}
 
+.btn-ghost:hover {
+  transform: translateY(-2px);
+  background: #fff;
+  border-color: var(--tech-cyan);
+  color: var(--tech-cyan);
+  box-shadow: 0 0 20px rgba(56, 189, 248, 0.6);
+}
+</style>
