@@ -30,7 +30,7 @@ export default {
 
           <!-- EMAIL BOX -->
           <div class="email-box mb-4">
-            <a href="mailto:tuamail@example.com" class="email-link">
+            <a href="mailto:delli.fabio@gmail.com" class="email-link">
               <i class="fa-solid fa-envelope me-2"></i>
               {{ $t('contacts.email_me') }}
             </a>
