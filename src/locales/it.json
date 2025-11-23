@@ -35,21 +35,58 @@
         "back": "Torna ai progetti",
         "loading": "Caricamento progetto…",
         "error": "Errore nel caricamento del progetto",
-        "no_data": "Nessun dato disponibile per questo progetto.",
-        "type_label": "Tipologia",
-        "tech_label": "Tecnologie",
-        "description_label": "Descrizione",
-        "github": "Vedi su GitHub"
-    },
-    "contacts": {
-        "title": "CONTATTI",
-        "hero_title": "Costruiamo<br /> <span class=\"outlined\">qualcosa</span><br /> insieme!",
-        "subtitle": "Entra in contatto",
-        "text": "Sentiti liberə di scrivermi qui 👇",
-        "email_me": "Scrivimi una mail",
-        "socials": "Guarda anche i miei social"
-    },
-    "footer": {
-        "rights": "Tutti i diritti riservati."
-    }
-}
+        {
+            "header": {
+                "home": "Home",
+                "projects": "Progetti",
+                "contacts": "Contatti"
+            },
+            "home": {
+                "hero_title": "CIAO SONO FABIO",
+                "hero_subtitle": "E QUESTO È IL MIO PORTFOLIO",
+                "featured_title": "Progetti in evidenza",
+                "view_all": "Vedi tutti",
+                "loading_projects": "Caricamento progetti…",
+                "no_featured": "Nessun progetto in evidenza.",
+                "tech_title": "Tecnologie che uso",
+                "loading_tech": "Caricamento tecnologie…",
+                "no_tech": "Nessuna tecnologia disponibile.",
+                "timeline_title": "Percorso",
+                "cta_title": "HAI VISTO QUALCOSA DI INTERESSANTE?",
+                "download_cv": "Scarica CV",
+                "contact_me": "Contattami"
+            },
+            "projects": {
+                "title": "PROGETTI",
+                "all_types": "Tutti i tipi",
+                "all_techs": "Tutte le tecnologie",
+                "reset": "Reset",
+                "loading": "Caricamento progetti…",
+                "error": "Errore nel caricamento dei progetti",
+                "no_results": "Nessun progetto corrisponde ai filtri selezionati.",
+                "view_details": "Vedi dettagli",
+                "type_label": "Tipo",
+                "tech_label": "Tecnologie"
+            },
+            "single_project": {
+                "back": "Torna ai progetti",
+                "loading": "Caricamento progetto…",
+                "error": "Errore nel caricamento del progetto",
+                "no_data": "Nessun dato disponibile per questo progetto.",
+                "type_label": "Tipologia",
+                "tech_label": "Tecnologie",
+                "description_label": "Descrizione",
+                "github": "Vedi su GitHub"
+            },
+            "contacts": {
+                "title": "CONTATTI",
+                "hero_title": "Creiamo<br /> <span class=\"outlined\">qualcosa</span><br /> insieme!",
+                "subtitle": "Entra in contatto",
+                "text": "Sentiti liberə di scrivermi qui 👇",
+                "email_me": "Scrivimi una mail",
+                "socials": "Guarda anche i miei social"
+            },
+            "footer": {
+                "rights": "Tutti i diritti riservati."
+            }
+        }
