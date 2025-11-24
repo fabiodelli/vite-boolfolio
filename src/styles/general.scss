@@ -3,16 +3,45 @@
 @use "../styles/partials/footer.scss";
 @use "../styles/partials/home.scss";
 @use "../styles/partials/about.scss";
---tech-border: rgba(56, 189, 248, 0.3);
---tech-border-glow: rgba(56, 189, 248, 0.6);
---tech-cyan: #38bdf8;
-/* Bright cyan for dark mode */
---tech-purple: #a855f7;
---tech-text-main: #f1f5f9;
-/* Light text */
---tech-text-muted: #94a3b8;
---tech-shadow: 0 0 15px rgba(56, 189, 248, 0.25);
---tech-shadow-hover: 0 0 25px rgba(56, 189, 248, 0.5);
+@use "../styles/partials/contacts.scss";
+@use "../styles/partials/projects.scss";
+@use "../styles/partials/dark-mode.scss";
+@import url('https://fonts.googleapis.com/css2?family=Saira:ital,wght@0,100..900;1,100..900&display=swap');
+@import "/node_modules/bootstrap/scss/bootstrap";
+
+:root {
+  color-scheme: light only;
+  /* TECH PALETTE - LIGHT MODE (Default) */
+  --tech-bg-dark: #f0f9ff;
+  /* Light AliceBlue background */
+  --tech-bg-glass: rgba(255, 255, 255, 0.9);
+  --tech-border: rgba(56, 189, 248, 0.4);
+  --tech-border-glow: rgba(56, 189, 248, 0.8);
+  --tech-cyan: #0ea5e9;
+  /* Slightly darker cyan for visibility on white */
+  --tech-purple: #9333ea;
+  --tech-text-main: #0f172a;
+  /* Dark text */
+  --tech-text-muted: #475569;
+  --tech-shadow: 0 4px 20px rgba(56, 189, 248, 0.15);
+  --tech-shadow-hover: 0 8px 30px rgba(56, 189, 248, 0.3);
+}
+
+body.dark-theme {
+  color-scheme: dark;
+  /* TECH PALETTE - DARK MODE */
+  --tech-bg-dark: #020617;
+  --tech-bg-glass: rgba(15, 23, 42, 0.7);
+  --tech-border: rgba(56, 189, 248, 0.3);
+  --tech-border-glow: rgba(56, 189, 248, 0.6);
+  --tech-cyan: #38bdf8;
+  /* Bright cyan for dark mode */
+  --tech-purple: #a855f7;
+  --tech-text-main: #f1f5f9;
+  /* Light text */
+  --tech-text-muted: #94a3b8;
+  --tech-shadow: 0 0 15px rgba(56, 189, 248, 0.25);
+  --tech-shadow-hover: 0 0 25px rgba(56, 189, 248, 0.5);
 }
 
 html,
