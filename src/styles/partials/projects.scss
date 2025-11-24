@@ -1,4 +1,4 @@
-﻿/* FILTER SELECT (Dropdown) */
+/* FILTER SELECT (Dropdown) */
 .filter-select {
   appearance: none;
   background-color: var(--tech-bg-glass);
@@ -157,18 +157,8 @@
   color: #000;
   box-shadow: 0 0 15px rgba(56, 189, 248, 0.6);
 }
-
 /* Fix images appearing darker on mobile */
 @media (max-width: 768px) {
-  `n
-
-  /* Reduce padding on mobile to make images larger */
-  `n .project-image-wrap {
-    `n padding: 0.25rem !important;
-    `n background: white;
-    `n
-  }
-
   .project-image,
   .progect_img {
     filter: none !important;
