@@ -17,9 +17,16 @@ export default {
     };
   },
   created() {
-    // FORCE LIGHT MODE - ignore localStorage
-    this.darkMode = false;
-    localStorage.setItem('darkMode', 'false');
+    // FORCE DARK MODE on mobile
+    const isMobile = window.innerWidth <= 768;
+    if (isMobile) {
+      this.darkMode = true;
+      localStorage.setItem('darkMode', 'true');
+    } else {
+      // Desktop: use saved preference or default to light
+      this.darkMode = false;
+      localStorage.setItem('darkMode', 'false');
+    }
     this.applyTheme();
   },
   methods: {
