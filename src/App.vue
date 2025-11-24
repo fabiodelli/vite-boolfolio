@@ -17,11 +17,9 @@ export default {
     };
   },
   created() {
-    // leggo preferenza salvata
-    const saved = localStorage.getItem('darkMode');
-    if (saved !== null) {
-      this.darkMode = saved === 'true';
-    }
+    // FORCE LIGHT MODE - ignore localStorage
+    this.darkMode = false;
+    localStorage.setItem('darkMode', 'false');
     this.applyTheme();
   },
   methods: {
