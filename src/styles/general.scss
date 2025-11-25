@@ -14,49 +14,98 @@
   --tech-bg-dark: #ffffff;
   /* Light AliceBlue background */
   --tech-bg-glass: rgba(255, 255, 255, 0.9);
-  // Import all of Bootstrap's CSS
-  @use "../styles/partials/header.scss";
-  @use "../styles/partials/footer.scss";
-  @use "../styles/partials/home.scss";
-  @use "../styles/partials/about.scss";
-  @use "../styles/partials/contacts.scss";
-  @use "../styles/partials/projects.scss";
-  @use "../styles/partials/dark-mode.scss";
-  @import url('https://fonts.googleapis.com/css2?family=Saira:ital,wght@0,100..900;1,100..900&display=swap');
-  @import "/node_modules/bootstrap/scss/bootstrap";
+  --tech-border: rgba(56, 189, 248, 0.4);
+  --tech-border-glow: rgba(56, 189, 248, 0.8);
+  --tech-cyan: #0ea5e9;
+  /* Slightly darker cyan for visibility on white */
+  --tech-purple: #9333ea;
+  --tech-text-main: #0f172a;
+  /* Dark text */
+  --tech-text-muted: #475569;
+  --tech-shadow: 0 4px 20px rgba(56, 189, 248, 0.15);
+  --tech-shadow-hover: 0 8px 30px rgba(56, 189, 248, 0.3);
+}
 
-  :root {
-    /* TECH PALETTE - LIGHT MODE (Default) */
-    --tech-bg-dark: #ffffff;
-    /* Light AliceBlue background */
-    --tech-bg-glass: rgba(255, 255, 255, 0.9);
-    --tech-border: rgba(56, 189, 248, 0.4);
-    --tech-border-glow: rgba(56, 189, 248, 0.8);
-    --tech-cyan: #0ea5e9;
-    /* Slightly darker cyan for visibility on white */
-    --tech-purple: #9333ea;
-    --tech-text-main: #0f172a;
+body.dark-theme {
+  /* TECH PALETTE - DARK MODE */
+  --tech-bg-dark: #020617;
+  --tech-bg-glass: rgba(15, 23, 42, 0.7);
+  --tech-border: rgba(56, 189, 248, 0.3);
+  --tech-border-glow: rgba(56, 189, 248, 0.6);
+  --tech-cyan: #38bdf8;
+  /* Bright cyan for dark mode */
+  --tech-purple: #a855f7;
+  --tech-text-main: #f1f5f9;
+  /* Light text */
+  --tech-text-muted: #94a3b8;
+  --tech-shadow: 0 0 15px rgba(56, 189, 248, 0.25);
+  --tech-shadow-hover: 0 0 25px rgba(56, 189, 248, 0.5);
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  background-color: var(--tech-bg-dark);
+  /* Fixes overscroll color */
+  color: var(--tech-text-main);
+  font-family: 'Saira', sans-serif;
+  overflow-x: hidden;
+}
+
+#app {
+  /* Transparent by default */
+}
+
+.bg {
+  position: relative;
+  min-height: 100dvh;
+  /* Dynamic Viewport Height for mobile address bars */
+  background-color: transparent;
+  /* Allows canvas to show through */
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.app-header {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+.main-content {
+  flex-grow: 1;
+  position: relative;
+  z-index: 1;
+  overflow-x: hidden;
+  padding: 0 1.5rem;
+}
+
+.app-footer {
+  margin-top: 0;
+  background-color: transparent;
+  /* Will be styled in footer.scss */
+}
+
+/* --- IMMAGINE DECORATIVA --- */
+.nuvoletta {
+  width: 100px;
+  position: fixed;
+  top: 20%;
+  left: -100px;
+  z-index: 0;
+  animation: sposta-nuvoletta 20s linear infinite;
+}
+
+@keyframes sposta-nuvoletta {
+  0% {
+    left: -100px;
+    top: 20%;
   }
 
-  .bg {
-    position: relative;
-    min-height: 100dvh;
-    /* Dynamic Viewport Height for mobile address bars */
-    background-color: transparent;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
+  100% {
+    left: 90%;
+    top: 80%;
   }
-
-  /* The following keyframes were misplaced inside :root and have been moved outside for syntactical correctness. */
-  @keyframes moveShape {
-    0% {
-      left: -100px;
-      top: 20%;
-    }
-
-    100% {
-      left: 90%;
-      top: 80%;
-    }
-  }
+}
