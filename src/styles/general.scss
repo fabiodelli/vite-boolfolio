@@ -50,8 +50,6 @@ body {
   color: var(--tech-text-main);
   font-family: 'Saira', sans-serif;
   overflow-x: hidden;
-  overscroll-behavior-y: none;
-  /* Prevent mobile overscroll white bar */
   min-height: 100%;
 }
 
