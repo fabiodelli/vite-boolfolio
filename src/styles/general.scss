@@ -20,39 +20,7 @@
   /* Slightly darker cyan for visibility on white */
   --tech-purple: #9333ea;
   --tech-text-main: #0f172a;
-  /* Dark text */
-  --tech-text-muted: #475569;
-  --tech-shadow: 0 4px 20px rgba(56, 189, 248, 0.15);
-  --tech-shadow-hover: 0 8px 30px rgba(56, 189, 248, 0.3);
-}
 
-}
-
-.main-content {
-  flex-grow: 1;
-  position: relative;
-  z-index: 1;
-  overflow-x: hidden;
-  padding: 0 1.5rem;
-}
-
-.app-footer {
-  margin-top: 0;
-  background-color: transparent;
-  /* Will be styled in footer.scss */
-}
-
-/* --- IMMAGINE DECORATIVA --- */
-.nuvoletta {
-  width: 100px;
-  position: fixed;
-  top: 20%;
-  left: -100px;
-  z-index: 0;
-  animation: sposta-nuvoletta 20s linear infinite;
-}
-
-@keyframes sposta-nuvoletta {
   0% {
     left: -100px;
     top: 20%;
