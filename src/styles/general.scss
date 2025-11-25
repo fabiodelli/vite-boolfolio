@@ -36,76 +36,56 @@ body.dark-theme {
   /* Bright cyan for dark mode */
   --tech-purple: #a855f7;
   --tech-text-main: #f1f5f9;
-  /* Light text */
-  --tech-text-muted: #94a3b8;
-  --tech-shadow: 0 0 15px rgba(56, 189, 248, 0.25);
-  --tech-shadow-hover: 0 0 25px rgba(56, 189, 248, 0.5);
-}
 
-html,
-body {
-  margin: 0;
-  padding: 0;
-  background-color: var(--tech-bg-dark);
-  /* Fixes overscroll color */
-  color: var(--tech-text-main);
-  font-family: 'Saira', sans-serif;
-  overflow-x: hidden;
-}
+  .bg {
+    position: relative;
+    min-height: 100dvh;
+    /* Dynamic Viewport Height for mobile address bars */
+    background-color: transparent;
+    /* Allows canvas to show through */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
 
-#app {
-  /* Transparent by default */
-}
+  .app-header {
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+  }
 
-.bg {
-  position: relative;
-  min-height: 100dvh;
-  /* Dynamic Viewport Height for mobile address bars */
-  background-color: transparent;
-  /* Allows canvas to show through */
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-}
+  .main-content {
+    flex-grow: 1;
+    position: relative;
+    z-index: 1;
+    overflow-x: hidden;
+    padding: 0 1.5rem;
+  }
 
-.app-header {
-  position: sticky;
-  top: 0;
-  z-index: 1000;
-}
+  .app-footer {
+    margin-top: 0;
+    background-color: transparent;
+    /* Will be styled in footer.scss */
+  }
 
-.main-content {
-  flex-grow: 1;
-  position: relative;
-  z-index: 1;
-  overflow-x: hidden;
-  padding: 0 1.5rem;
-}
-
-.app-footer {
-  margin-top: 0;
-  background-color: transparent;
-  /* Will be styled in footer.scss */
-}
-
-/* --- IMMAGINE DECORATIVA --- */
-.nuvoletta {
-  width: 100px;
-  position: fixed;
-  top: 20%;
-  left: -100px;
-  z-index: 0;
-  animation: sposta-nuvoletta 20s linear infinite;
-}
-
-@keyframes sposta-nuvoletta {
-  0% {
-    left: -100px;
+  /* --- IMMAGINE DECORATIVA --- */
+  .nuvoletta {
+    width: 100px;
+    position: fixed;
     top: 20%;
+    left: -100px;
+    z-index: 0;
+    animation: sposta-nuvoletta 20s linear infinite;
   }
 
-  100% {
-    left: 90%;
-    top: 80%;
+  @keyframes sposta-nuvoletta {
+    0% {
+      left: -100px;
+      top: 20%;
+    }
+
+    100% {
+      left: 90%;
+      top: 80%;
+    }
   }
-}
