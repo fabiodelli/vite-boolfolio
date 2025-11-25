@@ -1,4 +1,4 @@
-﻿/* ===========================
+/* ===========================
    HEADER / NAVBAR
    =========================== */
 
@@ -204,10 +204,5 @@ header .nav .nav-link.filter_button.router-link-exact-active {
 
   .header-nav {
     padding-inline: 0.5rem;
-  }
-  
-  /* Hide theme toggle on mobile (dark mode is forced) */
-  .theme-toggle-btn {
-    display: none !important;
   }
 }

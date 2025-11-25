@@ -17,15 +17,12 @@ export default {
     };
   },
   created() {
-    // FORCE DARK MODE on mobile
-    const isMobile = window.innerWidth <= 768;
-    if (isMobile) {
-      this.darkMode = true;
-      localStorage.setItem('darkMode', 'true');
+    // Use saved preference or default to light mode
+    const saved = localStorage.getItem('darkMode');
+    if (saved !== null) {
+      this.darkMode = saved === 'true';
     } else {
-      // Desktop: use saved preference or default to light
       this.darkMode = false;
-      localStorage.setItem('darkMode', 'false');
     }
     this.applyTheme();
   },

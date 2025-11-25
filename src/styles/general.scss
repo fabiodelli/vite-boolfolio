@@ -10,7 +10,7 @@
 @import "/node_modules/bootstrap/scss/bootstrap";
 
 :root {
-  color-scheme: light only;
+  
   /* TECH PALETTE - LIGHT MODE (Default) */
   --tech-bg-dark: #f0f9ff;
   /* Light AliceBlue background */
@@ -28,7 +28,7 @@
 }
 
 body.dark-theme {
-  color-scheme: dark;
+  
   /* TECH PALETTE - DARK MODE */
   --tech-bg-dark: #020617;
   --tech-bg-glass: rgba(15, 23, 42, 0.7);
@@ -47,7 +47,7 @@ body.dark-theme {
 /* Force light colors when system prefers dark but site is in light mode */
 @media (prefers-color-scheme: dark) {
   body:not(.dark-theme) {
-    color-scheme: light only;
+    
     background-color: #f0f9ff !important;
     color: #0f172a !important;
   }
@@ -57,12 +57,11 @@ html,
 body {
   margin: 0;
   padding: 0;
-  background-color: transparent;
+  background-color: var(--tech-bg-dark);
   /* Canvas handles BG */
   color: var(--tech-text-main);
   font-family: 'Saira', sans-serif;
-  overflow-x: hidden;
-}
+  overflow-x: hidden;`n  overscroll-behavior-y: none;  /* Prevent mobile overscroll white bar */`n}
 
 .bg {
   position: relative;
