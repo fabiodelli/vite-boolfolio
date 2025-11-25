@@ -53,10 +53,21 @@ body {
   overflow-x: hidden;
 }
 
-/* Allows canvas to show through */
-display: flex;
-flex-direction: column;
-justify-content: space-between;
+/* Ensure body background is transparent to show particles, 
+   but html has color for overscroll. */
+body {
+  background-color: transparent;
+}
+
+.bg {
+  position: relative;
+  min-height: 100dvh;
+  /* Dynamic Viewport Height for mobile address bars */
+  background-color: transparent;
+  /* Allows canvas to show through */
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
 
 .app-header {
