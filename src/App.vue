@@ -33,8 +33,8 @@ export default {
       this.applyTheme();
     },
     applyTheme() {
-      // aggiungo / tolgo la classe sul body
-      document.body.classList.toggle('dark-theme', this.darkMode);
+      // aggiungo / tolgo la classe su html (documentElement) per gestire anche l'overscroll
+      document.documentElement.classList.toggle('dark-theme', this.darkMode);
     },
   },
 };
