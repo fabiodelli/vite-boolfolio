@@ -51,7 +51,8 @@ export default {
 }
 
 /* Hover effects only for devices that support hover (Desktop) */
-@media (hover: hover) {
+/* Hover effects only for devices that support hover AND have a fine pointer (Mouse) */
+@media (hover: hover) and (pointer: fine) {
   .app-logo:hover {
     transform: scale(1.05) rotate(3deg);
     box-shadow: 0 0 25px rgba(56, 189, 248, 0.6);
@@ -67,6 +68,13 @@ export default {
     opacity: 1;
     transform: scale(1);
   }
+}
+
+/* Explicitly reset styles on focus to prevent sticky states on mobile */
+.app-logo:focus {
+  transform: none;
+  box-shadow: 0 0 15px rgba(56, 189, 248, 0.3);
+  border-color: var(--tech-cyan);
 }
 
 /* Active state for Mobile (Touch) and Click */
