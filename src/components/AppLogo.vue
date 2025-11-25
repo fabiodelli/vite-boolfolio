@@ -50,19 +50,29 @@ export default {
   transition: all 0.5s ease;
 }
 
-.app-logo:hover {
-  transform: scale(1.05) rotate(3deg);
-  box-shadow: 0 0 25px rgba(56, 189, 248, 0.6);
-  border-color: #fff;
+/* Hover effects only for devices that support hover (Desktop) */
+@media (hover: hover) {
+  .app-logo:hover {
+    transform: scale(1.05) rotate(3deg);
+    box-shadow: 0 0 25px rgba(56, 189, 248, 0.6);
+    border-color: #fff;
+  }
+
+  .app-logo:hover .logo-text {
+    color: #fff;
+    text-shadow: 0 0 15px var(--tech-cyan);
+  }
+
+  .app-logo:hover::before {
+    opacity: 1;
+    transform: scale(1);
+  }
 }
 
-.app-logo:hover .logo-text {
-  color: #fff;
-  text-shadow: 0 0 15px var(--tech-cyan);
-}
-
-.app-logo:hover::before {
-  opacity: 1;
-  transform: scale(1);
+/* Active state for Mobile (Touch) and Click */
+.app-logo:active {
+  transform: scale(0.95);
+  box-shadow: 0 0 10px rgba(56, 189, 248, 0.4);
+  border-color: var(--tech-cyan);
 }
 </style>
