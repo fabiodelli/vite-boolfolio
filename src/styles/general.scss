@@ -14,20 +14,49 @@
   --tech-bg-dark: #ffffff;
   /* Light AliceBlue background */
   --tech-bg-glass: rgba(255, 255, 255, 0.9);
-  --tech-border: rgba(56, 189, 248, 0.4);
-  --tech-border-glow: rgba(56, 189, 248, 0.8);
-  --tech-cyan: #0ea5e9;
-  /* Slightly darker cyan for visibility on white */
-  --tech-purple: #9333ea;
-  --tech-text-main: #0f172a;
+  // Import all of Bootstrap's CSS
+  @use "../styles/partials/header.scss";
+  @use "../styles/partials/footer.scss";
+  @use "../styles/partials/home.scss";
+  @use "../styles/partials/about.scss";
+  @use "../styles/partials/contacts.scss";
+  @use "../styles/partials/projects.scss";
+  @use "../styles/partials/dark-mode.scss";
+  @import url('https://fonts.googleapis.com/css2?family=Saira:ital,wght@0,100..900;1,100..900&display=swap');
+  @import "/node_modules/bootstrap/scss/bootstrap";
 
-  0% {
-    left: -100px;
-    top: 20%;
+  :root {
+    /* TECH PALETTE - LIGHT MODE (Default) */
+    --tech-bg-dark: #ffffff;
+    /* Light AliceBlue background */
+    --tech-bg-glass: rgba(255, 255, 255, 0.9);
+    --tech-border: rgba(56, 189, 248, 0.4);
+    --tech-border-glow: rgba(56, 189, 248, 0.8);
+    --tech-cyan: #0ea5e9;
+    /* Slightly darker cyan for visibility on white */
+    --tech-purple: #9333ea;
+    --tech-text-main: #0f172a;
   }
 
-  100% {
-    left: 90%;
-    top: 80%;
+  .bg {
+    position: relative;
+    min-height: 100dvh;
+    /* Dynamic Viewport Height for mobile address bars */
+    background-color: transparent;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
   }
-}
+
+  /* The following keyframes were misplaced inside :root and have been moved outside for syntactical correctness. */
+  @keyframes moveShape {
+    0% {
+      left: -100px;
+      top: 20%;
+    }
+
+    100% {
+      left: 90%;
+      top: 80%;
+    }
+  }
