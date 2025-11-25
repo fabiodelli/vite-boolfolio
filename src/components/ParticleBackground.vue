@@ -50,17 +50,27 @@ export default {
   methods: {
     resizeCanvas() {
       if (this.canvas) {
-        this.canvas.width = window.innerWidth;
-        this.canvas.height = window.innerHeight;
+        const dpr = window.devicePixelRatio || 1;
+        // Set actual size in memory (scaled to account for extra pixel density)
+        this.canvas.width = window.innerWidth * dpr;
+        this.canvas.height = window.innerHeight * dpr;
+        
+        // Normalize coordinate system to use css pixels
+        this.ctx.scale(dpr, dpr);
+        
+        // Re-initialize particles to fit new dimensions
         this.initParticles();
       }
     },
     initParticles() {
       this.particles = [];
+      const width = window.innerWidth;
+      const height = window.innerHeight;
+      
       for (let i = 0; i < this.particleCount; i++) {
         this.particles.push({
-          x: Math.random() * this.canvas.width,
-          y: Math.random() * this.canvas.height,
+          x: Math.random() * width,
+          y: Math.random() * height,
           baseVx: (Math.random() - 0.5) * 1,
           baseVy: (Math.random() - 0.5) * 1,
           vx: (Math.random() - 0.5) * 1,
@@ -72,7 +82,7 @@ export default {
     animate() {
       // Fill background
       this.ctx.fillStyle = this.bgColor;
-      this.ctx.fillRect(0, 0, this.canvas.width, this.canvas.height);
+      this.ctx.fillRect(0, 0, window.innerWidth, window.innerHeight);
       
       for (let i = 0; i < this.particles.length; i++) {
         let p = this.particles[i];
@@ -84,11 +94,11 @@ export default {
         p.x += p.vx;
         p.y += p.vy;
 
-        if (p.x < 0 || p.x > this.canvas.width) {
+        if (p.x < 0 || p.x > window.innerWidth) {
             p.vx *= -1;
             p.baseVx *= -1; // Reflect base velocity too
         }
-        if (p.y < 0 || p.y > this.canvas.height) {
+        if (p.y < 0 || p.y > window.innerHeight) {
             p.vy *= -1;
             p.baseVy *= -1; // Reflect base velocity too
         }
