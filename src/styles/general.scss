@@ -34,6 +34,49 @@ body.dark-theme {
   --tech-border-glow: rgba(56, 189, 248, 0.6);
   --tech-cyan: #38bdf8;
   /* Bright cyan for dark mode */
+  --tech-purple: #a855f7;
+  --tech-text-main: #f1f5f9;
+  /* Light text */
+  --tech-text-muted: #94a3b8;
+  --tech-shadow: 0 0 15px rgba(56, 189, 248, 0.25);
+  --tech-shadow-hover: 0 0 25px rgba(56, 189, 248, 0.5);
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  background-color: var(--tech-bg-dark);
+  /* Fixes overscroll color */
+  color: var(--tech-text-main);
+  font-family: 'Saira', sans-serif;
+  overflow-x: hidden;
+}
+
+/* Ensure body background is transparent to show particles, 
+   but html has color for overscroll. */
+body {
+  background-color: transparent;
+}
+
+#app {
+  /* Transparent by default */
+}
+
+.bg {
+  position: relative;
+  min-height: 100dvh;
+  /* Dynamic Viewport Height for mobile address bars */
+  background-color: transparent;
+  /* Allows canvas to show through */
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.app-header {
+  position: sticky;
+  top: 0;
   z-index: 1000;
 }
 
