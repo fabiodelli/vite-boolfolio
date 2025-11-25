@@ -23,7 +23,7 @@ export default {
   computed: {
     bgColor() {
       // Light: --tech-bg-dark (#f0f9ff), Dark: --tech-bg-dark (#020617)
-      return this.darkMode ? "#020617" : "#f0f9ff";
+      return this.darkMode ? "#020617" : "#ffffff";
     },
     particleColor() {
       // Light: Cyan/Blue (#0ea5e9) for visibility, Dark: White (#ffffff) or Cyan (#38bdf8)
