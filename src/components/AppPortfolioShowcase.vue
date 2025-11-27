@@ -1,53 +1,3 @@
-<script>
-export default {
-  name: 'AppPortfolioShowcase',
-  methods: {
-    goContacts() {
-      this.$router.push({ name: 'contacts' });
-    },
-  },
-};
-</script>
-
-<template>
-  <section class="portfolio-showcase container-xxl my-5">
-    <div class="showcase-card p-4 p-md-5">
-      <div class="row align-items-center g-4">
-        <!-- Text Content -->
-        <div class="col-12 col-lg-7">
-          
-          <p class="showcase-desc mb-4" v-html="$t('home.portfolio_showcase_desc')"></p>
-
-          <!-- Tech Stack Tags -->
-          <div class="d-flex flex-wrap gap-2 mb-4">
-            <span class="tech-tag">Vue 3</span>
-            <span class="tech-tag">Vite</span>
-            <span class="tech-tag">Laravel API</span>
-            <span class="tech-tag">SCSS</span>
-            <span class="tech-tag">Canvas API</span>
-            <span class="tech-tag">Axios</span>
-            <span class="tech-tag">Bootstrap 5</span>
-          </div>
-
-          <div class="cta-wrapper mt-4">
-            <h4 class="cta-text mb-3">{{ $t('home.portfolio_showcase_cta') }}</h4>
-            <button class="btn-tech-primary" @click="goContacts">
-              {{ $t('home.portfolio_showcase_btn') }}
-              <i class="fa-solid fa-arrow-right ms-2"></i>
-            </button>
-          </div>
-        </div>
-
-        <!-- Visual/Icon -->
-        <div class="col-12 col-lg-5 text-center">
-            <div class="tech-visual">
-                <i class="fa-solid fa-layer-group fa-5x tech-icon-glow"></i>
-            </div>
-        </div>
-      </div>
-    </div>
-  </section>
-</template>
 
 <style lang="scss" scoped>
 .showcase-card {
@@ -132,13 +82,22 @@ export default {
   animation: float 6s ease-in-out infinite;
 }
 
-.tech-icon-glow {
-    color: var(--tech-cyan);
-    filter: drop-shadow(0 0 20px var(--tech-cyan));
+.tech-stack-img {
+  max-width: 80%;
+  border-radius: 20px;
+  box-shadow: 0 0 30px rgba(56, 189, 248, 0.3);
+  border: 1px solid var(--tech-border);
+  transition: all 0.3s ease;
+
+  &:hover {
+    transform: scale(1.02);
+    box-shadow: 0 0 50px rgba(56, 189, 248, 0.5);
+    border-color: var(--tech-cyan);
+  }
 }
 
 @keyframes float {
     0%, 100% { transform: translateY(0); }
-    50% { transform: translateY(-20px); }
+    50% { transform: translateY(-15px); }
 }
 </style>

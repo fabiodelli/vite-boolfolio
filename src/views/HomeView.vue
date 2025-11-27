@@ -227,17 +227,18 @@ export default {
   <div class="bg-transparent">
 
     <!-- HERO -->
-    <section class="home-section" style="background: transparent;">
-      <h1 class="home_text">
-        {{ $t('home.hero_title') }} <br />
-        {{ animatedText }} <br />
-        {{ $t('home.hero_subtitle') }}
-      </h1>
-      <img :src="heroImage" class="img-home" alt="Portfolio hero" />
+    <section class="home-section d-flex justify-content-center align-items-center text-center" style="background: transparent; min-height: 60vh;">
+      <div class="hero-glass-card">
+        <h1 class="home_text mb-0">
+          <span class="d-block text-uppercase small-title">{{ $t('home.hero_title') }}</span>
+          <span class="d-block big-title gradient-text">{{ animatedText }}</span>
+          <span class="d-block text-uppercase subtitle-text">{{ $t('home.hero_subtitle') }}</span>
+        </h1>
+      </div>
     </section>
 
     <!-- PORTFOLIO SHOWCASE -->
-    <AppPortfolioShowcase />
+    <AppPortfolioShowcase :darkMode="darkMode" />
 
     <!-- FEATURED PROJECTS (reali, con cover) -->
     <section class="featured-wrap container-xxl">
@@ -309,3 +310,78 @@ export default {
 
   </div>
 </template>
+
+<style scoped>
+/* HERO GLASS CARD */
+.hero-glass-card {
+  background: var(--tech-bg-glass);
+  backdrop-filter: blur(15px);
+  -webkit-backdrop-filter: blur(15px);
+  border: 1px solid var(--tech-border);
+  padding: 3rem 5rem;
+  border-radius: 30px;
+  box-shadow: 0 0 40px rgba(56, 189, 248, 0.15);
+  position: relative;
+  overflow: hidden;
+  transition: all 0.3s ease;
+  
+  &::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle, rgba(56, 189, 248, 0.1) 0%, transparent 70%);
+    animation: rotateBg 10s linear infinite;
+    pointer-events: none;
+  }
+
+  &:hover {
+    box-shadow: 0 0 60px rgba(56, 189, 248, 0.25);
+    border-color: var(--tech-cyan);
+    transform: translateY(-5px);
+  }
+}
+
+.small-title {
+  font-size: 1.2rem;
+  letter-spacing: 0.2em;
+  color: var(--tech-text-muted);
+  margin-bottom: 1rem;
+  font-weight: 600;
+}
+
+.big-title {
+  font-size: 4rem;
+  font-weight: 900;
+  letter-spacing: -0.02em;
+  line-height: 1.1;
+  margin-bottom: 1rem;
+  
+  @media (max-width: 768px) {
+    font-size: 2.5rem;
+  }
+}
+
+.gradient-text {
+  background: linear-gradient(135deg, var(--tech-cyan), var(--tech-purple));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  text-fill-color: transparent;
+  filter: drop-shadow(0 0 10px rgba(56, 189, 248, 0.3));
+}
+
+.subtitle-text {
+  font-size: 1rem;
+  letter-spacing: 0.1em;
+  color: var(--tech-text-main);
+  opacity: 0.8;
+}
+
+@keyframes rotateBg {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+</style>
