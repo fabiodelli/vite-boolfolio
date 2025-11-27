@@ -39,10 +39,10 @@ export default {
           </div>
         </div>
 
-        <!-- Visual/Icon (Optional, maybe a code snippet or abstract graphic) -->
+        <!-- Visual/Icon -->
         <div class="col-12 col-lg-5 text-center">
             <div class="tech-visual">
-                <i class="fa-solid fa-layer-group fa-5x tech-icon-glow"></i>
+                <img src="/img/tech_stack.png" alt="Tech Stack" class="img-fluid tech-stack-img" />
             </div>
         </div>
       </div>
@@ -129,14 +129,26 @@ export default {
   }
 }
 
-.tech-icon-glow {
-    color: var(--tech-cyan);
-    filter: drop-shadow(0 0 20px var(--tech-cyan));
-    animation: float 6s ease-in-out infinite;
+.tech-visual {
+  animation: float 6s ease-in-out infinite;
+}
+
+.tech-stack-img {
+  max-width: 80%;
+  border-radius: 20px;
+  box-shadow: 0 0 30px rgba(56, 189, 248, 0.3);
+  border: 1px solid var(--tech-border);
+  transition: all 0.3s ease;
+
+  &:hover {
+    transform: scale(1.02);
+    box-shadow: 0 0 50px rgba(56, 189, 248, 0.5);
+    border-color: var(--tech-cyan);
+  }
 }
 
 @keyframes float {
     0%, 100% { transform: translateY(0); }
-    50% { transform: translateY(-20px); }
+    50% { transform: translateY(-15px); }
 }
 </style>
