@@ -15,6 +15,10 @@
         "loading_tech": "Caricamento tecnologie…",
         "no_tech": "Nessuna tecnologia disponibile.",
         "timeline_title": "Percorso",
+        "portfolio_showcase_title": "IL MIO PORTFOLIO",
+        "portfolio_showcase_desc": "Questo sito è una <strong>Single Page Application (SPA)</strong> realizzata con <strong>Vue 3</strong> e <strong>Vite</strong>, supportata da un backend <strong>Laravel API</strong>. Il design presenta un sistema di particelle personalizzato, tema dinamico (Light/Dark) e un'interfaccia glassmorphism responsive.",
+        "portfolio_showcase_cta": "Vorresti un portfolio con queste caratteristiche?",
+        "portfolio_showcase_btn": "Parliamone",
         "cta_title": "HAI VISTO QUALCOSA DI INTERESSANTE?",
         "download_cv": "Scarica CV",
         "contact_me": "Contattami"

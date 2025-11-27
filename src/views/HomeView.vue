@@ -2,12 +2,14 @@
 import axios from 'axios';
 import TechBubbles from '../components/TechBubbles.vue';
 import AppCta from '../components/AppCta.vue';
+import AppPortfolioShowcase from '../components/AppPortfolioShowcase.vue';
 
 export default {
   name: 'home',
   components: {
     TechBubbles,
     AppCta,
+    AppPortfolioShowcase,
   },
   data() {
     return {
@@ -290,6 +292,9 @@ export default {
         </li>
       </ul>
     </section>
+
+    <!-- PORTFOLIO SHOWCASE -->
+    <AppPortfolioShowcase />
 
     <!-- CTA -->
     <AppCta />
