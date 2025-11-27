@@ -15,7 +15,6 @@ export default {
       <div class="row align-items-center g-4">
         <!-- Text Content -->
         <div class="col-12 col-lg-7">
-          <h2 class="section-title mb-4">{{ $t('home.portfolio_showcase_title') }}</h2>
           
           <p class="showcase-desc mb-4" v-html="$t('home.portfolio_showcase_desc')"></p>
 
