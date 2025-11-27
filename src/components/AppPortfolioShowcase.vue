@@ -141,7 +141,7 @@ export default {
 }
 
 .tech-visual {
-  animation: float 6s ease-in-out infinite;
+  /* animation: float 6s ease-in-out infinite; */
 }
 
 .tech-stack-img {
