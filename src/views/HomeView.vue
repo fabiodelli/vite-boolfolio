@@ -224,7 +224,7 @@ export default {
         {{ animatedText }} <br />
         {{ $t('home.hero_subtitle') }}
       </h1>
-      <img src="/img/hero_tech.png" class="img-home" alt="Portfolio hero" />
+      <img src="/img/tech_stack.png" class="img-home" alt="Portfolio hero" />
     </section>
 
     <!-- PORTFOLIO SHOWCASE -->
