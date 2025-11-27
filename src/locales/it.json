@@ -6,7 +6,7 @@
     },
     "home": {
         "hero_title": "CIAO SONO FABIO",
-        "hero_subtitle": "E QUESTO È IL MIO PORTFOLIO",
+        "hero_subtitle": "",
         "featured_title": "Progetti in evidenza",
         "view_all": "Vedi tutti",
         "loading_projects": "Caricamento progetti…",
@@ -15,7 +15,7 @@
         "loading_tech": "Caricamento tecnologie…",
         "no_tech": "Nessuna tecnologia disponibile.",
         "timeline_title": "Percorso",
-        "portfolio_showcase_title": "IL MIO PORTFOLIO",
+        "portfolio_showcase_title": "E QUESTO È IL MIO PORTFOLIO",
         "portfolio_showcase_desc": "Questo sito è una <strong>Single Page Application (SPA)</strong> realizzata con <strong>Vue 3</strong> e <strong>Vite</strong>, supportata da un backend <strong>Laravel API</strong>. Il design presenta un sistema di particelle personalizzato, tema dinamico (Light/Dark) e un'interfaccia glassmorphism responsive.",
         "portfolio_showcase_cta": "Vorresti un portfolio con queste caratteristiche?",
         "portfolio_showcase_btn": "Parliamone",

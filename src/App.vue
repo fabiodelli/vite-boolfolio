@@ -54,7 +54,7 @@ export default {
 
     <!-- CONTENUTO PRINCIPALE -->
     <main class="main-content">
-      <router-view />
+      <router-view :darkMode="darkMode" />
     </main>
 
     <!-- FOOTER -->

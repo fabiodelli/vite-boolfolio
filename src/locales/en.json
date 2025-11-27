@@ -6,7 +6,7 @@
     },
     "home": {
         "hero_title": "HI I'M FABIO",
-        "hero_subtitle": "AND THIS IS MY PORTFOLIO",
+        "hero_subtitle": "",
         "featured_title": "Featured Projects",
         "view_all": "View All",
         "loading_projects": "Loading projects…",
@@ -15,7 +15,7 @@
         "loading_tech": "Loading technologies…",
         "no_tech": "No technologies available.",
         "timeline_title": "Journey",
-        "portfolio_showcase_title": "MY PORTFOLIO",
+        "portfolio_showcase_title": "AND THIS IS MY PORTFOLIO",
         "portfolio_showcase_desc": "This site is a <strong>Single Page Application (SPA)</strong> built with <strong>Vue 3</strong> and <strong>Vite</strong>, powered by a <strong>Laravel API</strong> backend. The design features a custom particle system, dynamic theming (Light/Dark), and a responsive glassmorphism interface.",
         "portfolio_showcase_cta": "Would you like a portfolio with these features?",
         "portfolio_showcase_btn": "Let's Talk",

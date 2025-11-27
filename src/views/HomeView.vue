@@ -61,7 +61,16 @@ export default {
     window.removeEventListener('resize', this.checkMobile);
   },
 
+  props: {
+    darkMode: {
+      type: Boolean,
+      default: false,
+    },
+  },
   computed: {
+    heroImage() {
+      return this.darkMode ? '/img/tech_stack.png' : '/img/tech_stack_light.png';
+    },
     // KPI
     kpiProjects() { return this.projects.length; },
     kpiSkills() { return this.techItems.length; },
@@ -224,7 +233,7 @@ export default {
         {{ animatedText }} <br />
         {{ $t('home.hero_subtitle') }}
       </h1>
-      <img src="/img/tech_stack.png" class="img-home" alt="Portfolio hero" />
+      <img :src="heroImage" class="img-home" alt="Portfolio hero" />
     </section>
 
     <!-- PORTFOLIO SHOWCASE -->
