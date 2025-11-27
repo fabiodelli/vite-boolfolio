@@ -39,9 +39,9 @@ export default {
           <p class="fw-semibold mb-2">{{ $t('contacts.socials') }}</p>
 
           <div class="social-links d-flex justify-content-center gap-3 mt-3">
-            <a class="social-pill" href="#" target="_blank"><i class="fa-brands fa-linkedin"></i></a>
-            <a class="social-pill" href="#" target="_blank"><i class="fa-brands fa-github"></i></a>
-            <a class="social-pill" href="#" target="_blank"><i class="fa-brands fa-facebook"></i></a>
+            <a class="social-pill" href="https://www.linkedin.com/in/fabio-delli/" target="_blank"><i class="fa-brands fa-linkedin"></i></a>
+            <a class="social-pill" href="https://github.com/fabiodelli?tab=repositories" target="_blank"><i class="fa-brands fa-github"></i></a>
+            <!-- <a class="social-pill" href="#" target="_blank"><i class="fa-brands fa-facebook"></i></a> -->
           </div>
 
         </div>

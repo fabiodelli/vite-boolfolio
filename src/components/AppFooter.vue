@@ -13,16 +13,16 @@ export default {
         </div>
 
         <div class="d-flex justify-content-center gap-3">
-          <a href="#" target="_blank" class="social-pill-footer">
+          <!-- <a href="#" target="_blank" class="social-pill-footer">
             <i class="fa-brands fa-square-twitter fa-lg"></i>
           </a>
           <a href="#" target="_blank" class="social-pill-footer">
             <i class="fa-brands fa-square-facebook fa-lg"></i>
-          </a>
-          <a href="#" target="_blank" class="social-pill-footer">
+          </a> -->
+          <a href="https://www.linkedin.com/in/fabio-delli/" target="_blank" class="social-pill-footer">
             <i class="fa-brands fa-linkedin fa-lg"></i>
           </a>
-          <a href="#" target="_blank" class="social-pill-footer">
+          <a href="https://github.com/fabiodelli?tab=repositories" target="_blank" class="social-pill-footer">
             <i class="fa-brands fa-square-github fa-lg"></i>
           </a>
         </div>
