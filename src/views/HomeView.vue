@@ -14,7 +14,7 @@ export default {
   data() {
     return {
       // HERO
-      titleTexts: ['DEVELOPER', 'TECH-ENTUSIAST', 'DREAMER'],
+      titleTexts: ['DEVELOPER'],
       currentTextIndex: 0,
       animatedText: '',
       currentIndex: 0,
@@ -227,7 +227,7 @@ export default {
   <div class="bg-transparent">
 
     <!-- HERO -->
-    <section class="home-section d-flex justify-content-center align-items-center text-center mb-0" style="background: transparent; min-height: 30vh;">
+    <section class="home-section d-flex justify-content-center align-items-center text-center mb-0" style="background: transparent; min-height: 35vh;">
       <h1 class="home_text mb-0">
         <span class="d-block text-uppercase small-title">{{ $t('home.hero_title') }}</span>
         <span class="d-block big-title gradient-text">{{ animatedText }}</span>

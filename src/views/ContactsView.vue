@@ -5,7 +5,7 @@ export default {
 </script>
 
 <template>
-  <div class="contacts-container container-xxl py-5">
+  <div class="contacts-container container-xxl py-5 d-flex flex-column justify-content-center min-vh-100-lg">
 
     <div class="row align-items-center justify-content-center gap-lg-5">
 
@@ -53,3 +53,10 @@ export default {
 </template>
 
 
+<style scoped>
+@media (min-width: 992px) {
+  .min-vh-100-lg {
+    min-height: 80vh; /* 80vh to account for header/footer */
+  }
+}
+</style>
