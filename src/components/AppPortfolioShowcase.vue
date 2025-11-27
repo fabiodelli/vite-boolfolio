@@ -21,7 +21,7 @@ export default {
 </script>
 
 <template>
-  <section class="portfolio-showcase container-xxl my-5">
+  <section class="portfolio-showcase container-xxl mb-5 mt-3">
     <div class="showcase-card p-4 p-md-5">
       <div class="row align-items-center g-4">
         <!-- Visual/Icon (Mobile: Top, Desktop: Right) -->
