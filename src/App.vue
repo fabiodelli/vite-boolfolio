@@ -13,16 +13,16 @@ export default {
   },
   data() {
     return {
-      darkMode: false,
+      darkMode: true,
     };
   },
   created() {
-    // Use saved preference or default to light mode
+    // Use saved preference or default to dark mode
     const saved = localStorage.getItem('darkMode');
     if (saved !== null) {
       this.darkMode = saved === 'true';
     } else {
-      this.darkMode = false;
+      this.darkMode = true;
     }
     this.applyTheme();
   },
