@@ -228,13 +228,11 @@ export default {
 
     <!-- HERO -->
     <section class="home-section d-flex justify-content-center align-items-center text-center" style="background: transparent; min-height: 60vh;">
-      <div class="hero-glass-card">
-        <h1 class="home_text mb-0">
-          <span class="d-block text-uppercase small-title">{{ $t('home.hero_title') }}</span>
-          <span class="d-block big-title gradient-text">{{ animatedText }}</span>
-          <span class="d-block text-uppercase subtitle-text">{{ $t('home.hero_subtitle') }}</span>
-        </h1>
-      </div>
+      <h1 class="home_text mb-0">
+        <span class="d-block text-uppercase small-title">{{ $t('home.hero_title') }}</span>
+        <span class="d-block big-title gradient-text">{{ animatedText }}</span>
+        <span class="d-block text-uppercase subtitle-text">{{ $t('home.hero_subtitle') }}</span>
+      </h1>
     </section>
 
     <!-- PORTFOLIO SHOWCASE -->
