@@ -1,3 +1,65 @@
+<script>
+export default {
+  name: 'AppPortfolioShowcase',
+  props: {
+    darkMode: {
+      type: Boolean,
+      default: false,
+    },
+  },
+  computed: {
+    stackImage() {
+      return this.darkMode ? '/img/tech_stack.png' : '/img/tech_stack_light.png';
+    },
+  },
+  methods: {
+    goContacts() {
+      this.$router.push({ name: 'contacts' });
+    },
+  },
+};
+</script>
+
+<template>
+  <section class="portfolio-showcase container-xxl my-5">
+    <div class="showcase-card p-4 p-md-5">
+      <div class="row align-items-center g-4">
+        <!-- Text Content -->
+        <div class="col-12 col-lg-7">
+          <h2 class="section-title mb-4">{{ $t('home.portfolio_showcase_title') }}</h2>
+          
+          <p class="showcase-desc mb-4" v-html="$t('home.portfolio_showcase_desc')"></p>
+
+          <!-- Tech Stack Tags -->
+          <div class="d-flex flex-wrap gap-2 mb-4">
+            <span class="tech-tag">Vue 3</span>
+            <span class="tech-tag">Vite</span>
+            <span class="tech-tag">Laravel API</span>
+            <span class="tech-tag">SCSS</span>
+            <span class="tech-tag">Canvas API</span>
+            <span class="tech-tag">Axios</span>
+            <span class="tech-tag">Bootstrap 5</span>
+          </div>
+
+          <div class="cta-wrapper mt-4">
+            <h4 class="cta-text mb-3">{{ $t('home.portfolio_showcase_cta') }}</h4>
+            <button class="btn-tech-primary" @click="goContacts">
+              {{ $t('home.portfolio_showcase_btn') }}
+              <i class="fa-solid fa-arrow-right ms-2"></i>
+            </button>
+          </div>
+        </div>
+
+        <!-- Visual/Icon -->
+        <div class="col-12 col-lg-5 text-center">
+            <div class="tech-visual">
+                <img :src="stackImage" alt="Tech Stack" class="img-fluid tech-stack-img" />
+            </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</template>
 
 <style lang="scss" scoped>
 .showcase-card {
