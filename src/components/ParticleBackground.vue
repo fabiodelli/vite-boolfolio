@@ -30,7 +30,7 @@ export default {
       // User asked for "azzurrino", let's try Cyan in Dark Mode too for a more "Tech" feel, 
       // or keep White for contrast. Let's stick to White for Dark Mode as it's star-like.
       // For Light Mode, use a darker Cyan/Blue for contrast against white.
-      return this.darkMode ? "#ffffff" : "#0ea5e9";
+      return this.darkMode ? "#ffffff" : "#000000";
     },
   },
 

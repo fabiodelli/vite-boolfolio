@@ -227,7 +227,7 @@ export default {
   <div class="bg-transparent">
 
     <!-- HERO -->
-    <section class="home-section d-flex justify-content-center align-items-center text-center" style="background: transparent; min-height: 60vh;">
+    <section class="home-section d-flex justify-content-center align-items-center text-center mb-0" style="background: transparent; min-height: 50vh;">
       <h1 class="home_text mb-0">
         <span class="d-block text-uppercase small-title">{{ $t('home.hero_title') }}</span>
         <span class="d-block big-title gradient-text">{{ animatedText }}</span>
@@ -262,7 +262,7 @@ export default {
               <h5 class="mb-2">{{ projectTitle(p) }}</h5>
               <p class="mb-3">{{ projectDesc(p) }}</p>
               <div class="d-flex flex-wrap gap-2 mb-3">
-                <span v-for="t in projectTags(p)" :key="t" class="btn-ghost">{{ t }}</span>
+                <span v-for="t in projectTags(p)" :key="t" class="tech-tag-small">{{ t }}</span>
               </div>
             </div>
           </article>
@@ -381,5 +381,24 @@ export default {
 @keyframes rotateBg {
   from { transform: rotate(0deg); }
   to { transform: rotate(360deg); }
+}
+
+.tech-tag-small {
+  background: rgba(56, 189, 248, 0.1);
+  color: var(--tech-cyan);
+  border: 1px solid var(--tech-border);
+  padding: 0.3rem 0.8rem;
+  border-radius: 50px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  display: inline-block;
+
+  &:hover {
+    background: var(--tech-cyan);
+    color: #fff;
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(56, 189, 248, 0.4);
+  }
 }
 </style>

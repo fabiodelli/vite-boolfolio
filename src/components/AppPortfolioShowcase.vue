@@ -24,9 +24,16 @@ export default {
   <section class="portfolio-showcase container-xxl my-5">
     <div class="showcase-card p-4 p-md-5">
       <div class="row align-items-center g-4">
-        <!-- Text Content -->
-        <div class="col-12 col-lg-7">
-          <h2 class="section-title mb-4">{{ $t('home.portfolio_showcase_title') }}</h2>
+        <!-- Visual/Icon (Mobile: Top, Desktop: Right) -->
+        <div class="col-12 col-lg-5 text-center order-1 order-lg-2">
+            <div class="tech-visual">
+                <img :src="stackImage" alt="Tech Stack" class="img-fluid tech-stack-img" />
+            </div>
+        </div>
+
+        <!-- Text Content (Mobile: Bottom, Desktop: Left) -->
+        <div class="col-12 col-lg-7 order-2 order-lg-1">
+          <!-- Removed Title as requested -->
           
           <p class="showcase-desc mb-4" v-html="$t('home.portfolio_showcase_desc')"></p>
 
@@ -48,13 +55,6 @@ export default {
               <i class="fa-solid fa-arrow-right ms-2"></i>
             </button>
           </div>
-        </div>
-
-        <!-- Visual/Icon -->
-        <div class="col-12 col-lg-5 text-center">
-            <div class="tech-visual">
-                <img :src="stackImage" alt="Tech Stack" class="img-fluid tech-stack-img" />
-            </div>
         </div>
       </div>
     </div>
@@ -93,7 +93,7 @@ export default {
   line-height: 1.6;
   
   ::v-deep(strong) {
-    color: var(--tech-purple);
+    color: var(--tech-cyan);
     font-weight: 700;
   }
 }
