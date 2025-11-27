@@ -227,8 +227,8 @@ export default {
   <div class="bg-transparent">
 
     <!-- HERO -->
-    <section class="home-section d-flex justify-content-center align-items-center text-center mb-0" style="background: transparent; min-height: 35vh;">
-      <h1 class="home_text mb-0">
+    <section class="home-section d-flex justify-content-center align-items-center text-center mb-0" style="background: transparent; min-height: 25vh;">
+      <h1 class="home_text mb-0 mt-4">
         <span class="d-block text-uppercase small-title">{{ $t('home.hero_title') }}</span>
         <span class="d-block big-title gradient-text">{{ animatedText }}</span>
         <span class="d-block text-uppercase subtitle-text">{{ $t('home.hero_subtitle') }}</span>
