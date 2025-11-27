@@ -227,6 +227,8 @@ export default {
       <img src="/img/hero_tech.png" class="img-home" alt="Portfolio hero" />
     </section>
 
+    <!-- PORTFOLIO SHOWCASE -->
+    <AppPortfolioShowcase />
 
     <!-- FEATURED PROJECTS (reali, con cover) -->
     <section class="featured-wrap container-xxl">
@@ -292,9 +294,6 @@ export default {
         </li>
       </ul>
     </section>
-
-    <!-- PORTFOLIO SHOWCASE -->
-    <AppPortfolioShowcase />
 
     <!-- CTA -->
     <AppCta />
