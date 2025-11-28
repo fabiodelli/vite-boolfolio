@@ -19,7 +19,7 @@ export default {
 
       // FILTRI
       selectedType: null,
-      selectedTechnologies: [], // Changed to array for multi-select
+      selectedTechnology: null,
       types: [],
       technologies: [],
     };
@@ -32,9 +32,9 @@ export default {
       const selType = this.selectedType
         ? String(this.selectedType).trim().toLowerCase()
         : null;
-      
-      // Normalize selected technologies
-      const selTechs = this.selectedTechnologies.map(t => String(t).trim().toLowerCase());
+      const selTech = this.selectedTechnology
+        ? String(this.selectedTechnology).trim().toLowerCase()
+        : null;
 
       return this.projects.data.filter((project) => {
         // TYPE
@@ -44,23 +44,15 @@ export default {
             : null;
         const typeMatch = selType ? projectType === selType : true;
 
-        // TECHNOLOGIES (Multi-select: project must have ALL selected techs? Or ANY? Usually AND for refinement, OR for broad search. Let's do AND for now as it's more common for filtering specific stacks, or OR if user wants to see projects with EITHER Vue OR Laravel. Let's stick to "AND" (must contain all selected) or "OR" (must contain at least one). 
-        // User asked for "possibilità di selezionare più tecnologie". Usually this implies "Show me projects that use Vue AND Laravel". 
-        // However, if I select "Vue" and "React", I might want to see projects with either. 
-        // Let's implement "OR" logic (at least one match) which is often more intuitive for "tag" filtering, OR "AND" if they want to find a specific stack. 
-        // Let's go with "AND" (must have all selected) because it narrows down results. Wait, if I select Vue and Laravel, I want projects that use BOTH.
-        // Actually, let's do "AND" logic: Project must contain ALL selected technologies.
-        
-        const projectTechs = Array.isArray(project.technologies)
+        // TECHNOLOGIES
+        const techNames = Array.isArray(project.technologies)
           ? project.technologies
               .map((t) =>
                 t.name ? String(t.name).trim().toLowerCase() : null
               )
               .filter(Boolean)
           : [];
-        
-        // Check if project has ALL selected technologies
-        const techMatch = selTechs.length === 0 || selTechs.every(sel => projectTechs.includes(sel));
+        const techMatch = selTech ? techNames.includes(selTech) : true;
 
         return typeMatch && techMatch;
       });
@@ -125,15 +117,14 @@ export default {
       this.selectedType = this.selectedType === type ? null : type;
     },
 
-    // Removed single filterByTechnology
-
-    resetTechFilter() {
-      this.selectedTechnologies = [];
+    filterByTechnology(tech) {
+      this.selectedTechnology =
+        this.selectedTechnology === tech ? null : tech;
     },
 
     resetFilters() {
       this.selectedType = null;
-      this.selectedTechnologies = [];
+      this.selectedTechnology = null;
     },
   },
 
@@ -153,55 +144,28 @@ export default {
         <h1 class="page-title">{{ $t('projects.title') }}</h1>
 
         <!-- FILTRI COMPATTI (Dropdown) -->
-        <div class="row g-3 justify-content-center mb-4">
+        <div class="d-flex justify-content-center align-items-center flex-wrap gap-3 mb-4">
           
           <!-- Filter by Type -->
-          <div class="col-12 col-md-4 col-lg-3">
-            <select v-model="selectedType" class="filter-select w-100">
-              <option :value="null">{{ $t('projects.all_types') }}</option>
-              <option v-for="type in types" :key="type" :value="type">
-                {{ type }}
-              </option>
-            </select>
-          </div>
+          <select v-model="selectedType" class="filter-select">
+            <option :value="null">{{ $t('projects.all_types') }}</option>
+            <option v-for="type in types" :key="type" :value="type">
+              {{ type }}
+            </option>
+          </select>
 
-          <!-- Filter by Technology (Multi-select simulation) -->
-          <div class="col-12 col-md-4 col-lg-3">
-            <div class="dropdown w-100">
-              <button class="filter-select w-100 text-start d-flex justify-content-between align-items-center" type="button" id="techDropdown" data-bs-toggle="dropdown" aria-expanded="false">
-                <span class="text-truncate">
-                  {{ selectedTechnologies.length ? selectedTechnologies.join(', ') : $t('projects.all_techs') }}
-                </span>
-                <i class="fa-solid fa-chevron-down ms-2"></i>
-              </button>
-              <ul class="dropdown-menu w-100 p-2" aria-labelledby="techDropdown" style="max-height: 300px; overflow-y: auto;">
-                <li>
-                  <div class="form-check">
-                    <input class="form-check-input" type="checkbox" id="all-techs" :checked="selectedTechnologies.length === 0" @change="resetTechFilter">
-                    <label class="form-check-label w-100 stretched-link" for="all-techs">
-                      {{ $t('projects.all_techs') }}
-                    </label>
-                  </div>
-                </li>
-                <li><hr class="dropdown-divider"></li>
-                <li v-for="tech in technologies" :key="tech">
-                  <div class="form-check">
-                    <input class="form-check-input" type="checkbox" :value="tech" :id="'tech-'+tech" v-model="selectedTechnologies">
-                    <label class="form-check-label w-100 stretched-link" :for="'tech-'+tech">
-                      {{ tech }}
-                    </label>
-                  </div>
-                </li>
-              </ul>
-            </div>
-          </div>
+          <!-- Filter by Technology -->
+          <select v-model="selectedTechnology" class="filter-select">
+            <option :value="null">{{ $t('projects.all_techs') }}</option>
+            <option v-for="tech in technologies" :key="tech" :value="tech">
+              {{ tech }}
+            </option>
+          </select>
 
           <!-- Reset Button -->
-          <div class="col-12 col-md-auto d-flex align-items-center">
-             <button @click="resetFilters()" class="btn-ghost w-100" style="padding: 0.5rem 1rem;">
-              {{ $t('projects.reset') }}
-            </button>
-          </div>
+          <button @click="resetFilters()" class="btn-ghost" style="min-width: auto; padding: 0.5rem 1rem;">
+            {{ $t('projects.reset') }}
+          </button>
 
         </div>
       </div>
