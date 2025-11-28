@@ -275,6 +275,7 @@ export default {
 
 <style lang="scss" scoped>
 /* bottone ghost (reset) */
+/* bottone ghost (reset) */
 .btn-ghost {
   background: var(--tech-cyan);
   border: 1px solid var(--tech-cyan);
@@ -296,5 +297,49 @@ export default {
   border-color: var(--tech-cyan);
   color: var(--tech-cyan);
   box-shadow: 0 0 20px rgba(56, 189, 248, 0.6);
+}
+
+/* Custom Select Style */
+.filter-select {
+  background-color: rgba(255, 255, 255, 0.05); /* Glass effect */
+  color: var(--tech-text-main);
+  border: 1px solid var(--tech-border);
+  border-radius: 20px;
+  padding: 0.5rem 2.5rem 0.5rem 1rem;
+  font-size: 0.9rem;
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%2338bdf8' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6 9 12 15 18 9'%3e%3c/polyline%3e%3c/svg%3e");
+  background-repeat: no-repeat;
+  background-position: right 0.8rem center;
+  background-size: 1em;
+  cursor: pointer;
+  min-width: 180px;
+  transition: all 0.3s ease;
+  backdrop-filter: blur(5px);
+
+  &:focus {
+    outline: none;
+    border-color: var(--tech-cyan);
+    box-shadow: 0 0 15px rgba(56, 189, 248, 0.2);
+    background-color: rgba(56, 189, 248, 0.05);
+  }
+
+  option {
+    background-color: #0f172a; /* Dark background for options */
+    color: #f8fafc;
+    padding: 10px;
+  }
+}
+
+@media (max-width: 768px) {
+  .filter-select {
+    width: 100%; /* Full width on mobile for better alignment */
+    max-width: 300px; /* But limit max width so they aren't huge */
+    margin: 0 auto; /* Center them */
+    font-size: 0.95rem;
+    padding: 0.6rem 2.5rem 0.6rem 1rem;
+  }
 }
 </style>
